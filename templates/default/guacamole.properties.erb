@@ -1,0 +1,17 @@
+#guacamole properties
+# Hostname and port of guacamole proxy
+guacd-hostname: localhost
+guacd-port:     4822
+
+# Auth provider class (authenticates user/pass combination, needed if using the provided login screen)
+
+auth-provider: net.sourceforge.guacamole.net.auth.mysql.MySQLAuthenticationProvider
+
+# Location to read extra .jar's from
+lib-directory:  <%= node['guacamole']['libdir'] %>
+# MySQL properties
+mysql-hostname: <%= node['guacamole']['dbhost'] %>
+mysql-port: <%= node['guacamole']['dbport'] %>
+mysql-database: <%= node['guacamole']['dbname'] %>
+mysql-username: <%= node['guacamole']['dbuser'] %>
+mysql-password: <%= node['guacamole']['dbpass'] %>

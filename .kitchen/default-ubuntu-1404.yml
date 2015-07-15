@@ -1,0 +1,6 @@
+---
+username: ubuntu
+ssh_key: ../ec2_keys/sarath.pem
+server_id: i-f25c4005
+hostname: ec2-52-26-222-149.us-west-2.compute.amazonaws.com
+last_action: create

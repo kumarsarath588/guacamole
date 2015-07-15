@@ -1,0 +1,6 @@
+---
+username: ec2-user
+ssh_key: ../ec2_keys/sarath.pem
+server_id: i-9f435f68
+hostname: ec2-52-27-165-201.us-west-2.compute.amazonaws.com
+last_action: create
