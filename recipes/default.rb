@@ -26,7 +26,7 @@ if node['platform']=="ubuntu"
 end
 
 
-if node['platform']=="centos"
+if node['platform']=="centos" or node['platform']=="amazon"
   package ['cairo-devel', 'libpng-devel', 'uuid-devel', 'freerdp-devel', 'pango-devel', 'libssh2-devel', 'libvncserver-devel', 'pulseaudio-libs-devel', 'openssl-devel', 'libvorbis-devel', 'wget', 'unzip', 'gcc', 'gcc-c++', 'libpng-devel', 'cairo-devel', 'uuid-devel' ] do
     action :install
  end
@@ -55,7 +55,7 @@ remote_file "/tmp/#{libtelnet_devel_filename}" do
   action :create_if_missing
 end
 
-if node['platform']=="centos"
+if node['platform']=="centos" or node['platform']=="amazon"
  bash 'libtelnet' do
   user 'root'
   cwd '/tmp'
@@ -65,7 +65,7 @@ if node['platform']=="centos"
  end
 end
 
-if node['platform']=="centos"
+if node['platform']=="centos" or node['platform']=="amazon"
  bash 'libtelnet' do
   user 'root'
   cwd '/tmp'
@@ -130,7 +130,7 @@ end
   end
 end
 
-if node['platform'] == "centos" && node['platform_version'].to_f >= 7.0
+if node['platform'] == "centos" or node['platform']=="amazon" && node['platform_version'].to_f >= 7.0
   package [ 'mariadb-server' , 'mariadb' ] do
     action :install
   end
