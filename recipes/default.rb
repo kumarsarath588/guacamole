@@ -53,24 +53,22 @@ remote_file "#{Chef::Config[:file_cache_path]}/#{libtelnet_devel_filename}" do
   action :create_if_missing
 end
 
-if node['platform']=="centos" or node['platform']=="amazon"
- bash 'libtelnet' do
+bash 'libtelnet' do
   user 'root'
   cwd '/tmp'
   code <<-EOH
   [ -z "$(rpm -qa|grep libtelnet)" ] && rpm -ivh libtelnet-0*.rpm || exit 0
   EOH
- end
+  only_if { node['platform']=="centos" or node['platform']=="amazon" }
 end
 
-if node['platform']=="centos" or node['platform']=="amazon"
- bash 'libtelnet' do
+bash 'libtelnet' do
   user 'root'
   cwd '/tmp'
   code <<-EOH
   [ -z "$(rpm -qa|grep libtelnet-devel)" ] && rpm -ivh libtelnet-devel-0*.rpm || exit 0
   EOH
- end
+  only_if { node['platform']=="centos" or node['platform']=="amazon" }
 end
 
 
@@ -125,6 +123,7 @@ end
   cookbook_file "/var/lib/guacamole/classpath/#{file}" do
    source file
     action :create
+    not_if "/var/lib/guacamole/classpath/#{file}"
   end
 end
 
