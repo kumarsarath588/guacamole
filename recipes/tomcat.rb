@@ -3,7 +3,7 @@
 package_url = node['tomcat']['url']
 base_package_filename = File.basename(package_url)
 
-remote_file "/tmp/#{base_package_filename}" do
+remote_file "#{Chef::Config[:file_cache_path]}/#{base_package_filename}" do
   source package_url
   mode '0700'
   action :create_if_missing

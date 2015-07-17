@@ -11,30 +11,29 @@
 #Package installation
 
 
-if node['platform']=="ubuntu"
-  apt_repository 'libssh2' do
+apt_repository 'libssh2' do
    uri        'http://kr.archive.ubuntu.com/ubuntu'
    components ['main', 'universe']
    distribution 'trusty'
-  end
-  bash "apt-get update" do
+   only_if { node['platform']=="ubuntu" }
+end
+bash "apt-get update" do
    code <<-EOH
    sudo apt-get update
    EOH
-  end
+   only_if { node['platform']=="ubuntu" }
 end
+
 include_recipe "java"
 
-if node['platform']=="centos" or node['platform']=="amazon"
-  package ['cairo-devel', 'libpng-devel', 'uuid-devel', 'freerdp-devel', 'pango-devel', 'libssh2-devel', 'libvncserver-devel', 'pulseaudio-libs-devel', 'openssl-devel', 'libvorbis-devel', 'wget', 'unzip', 'gcc', 'gcc-c++', 'libpng-devel', 'cairo-devel', 'uuid-devel' ] do
+package ['cairo-devel', 'libpng-devel', 'uuid-devel', 'freerdp-devel', 'pango-devel', 'libssh2-devel', 'libvncserver-devel', 'pulseaudio-libs-devel', 'openssl-devel', 'libvorbis-devel', 'wget', 'unzip', 'gcc', 'gcc-c++', 'libpng-devel', 'cairo-devel', 'uuid-devel' ] do
     action :install
- end
+    only_if { node['platform']=="centos" or node['platform']=="amazon" }
 end
 
-if node['platform']=="ubuntu"
-  package ['libcairo2-dev', 'libpng12-dev', 'libossp-uuid-dev', 'libfreerdp-dev', 'libpango1.0-dev', 'libtelnet-dev', 'libssh2-1-dev', 'libvncserver-dev', 'libpulse-dev', 'libssl-dev', 'libvorbis-dev', 'gcc', 'unzip', 'wget', 'gcc-c++' ] do
+package ['libcairo2-dev', 'libpng12-dev', 'libossp-uuid-dev', 'libfreerdp-dev', 'libpango1.0-dev', 'libtelnet-dev', 'libssh2-1-dev', 'libvncserver-dev', 'libpulse-dev', 'libssl-dev', 'libvorbis-dev', 'gcc', 'unzip', 'wget', 'gcc-c++' ] do
     action :install
- end
+    only_if { node['platform']=="ubuntu" }
 end
 
 libtelnet_url = node['guacamole']['libtelnet']['url']
@@ -42,13 +41,13 @@ libtelnet_devel_url = node['guacamole']['libtelnet_devel']['url']
 libtelnet_filename = File.basename(libtelnet_url)
 libtelnet_devel_filename = File.basename(libtelnet_devel_url)
 
-remote_file "/tmp/#{libtelnet_filename}" do
+remote_file "#{Chef::Config[:file_cache_path]}/#{libtelnet_filename}" do
   source libtelnet_url
   mode '0700'
   action :create_if_missing
 end
 
-remote_file "/tmp/#{libtelnet_devel_filename}" do
+remote_file "#{Chef::Config[:file_cache_path]}/#{libtelnet_devel_filename}" do
   source libtelnet_devel_url
   mode '0700'
   action :create_if_missing
