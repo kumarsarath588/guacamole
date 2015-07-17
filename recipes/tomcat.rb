@@ -29,7 +29,7 @@ end
 
 template "/etc/init.d/tomcat" do
   source "tomcat.erb"
-  mode 755
+  mode "00755"
   variables(
     :java_home => node['java']['java_home']
   )
@@ -49,6 +49,6 @@ end
 
 template "/opt/tomcat/conf/tomcat-users.xml" do
   source "tomcat-users.xml.erb"
-  mode 755
+  mode "00755"
 end
 

@@ -157,12 +157,12 @@ end
 
 template "/tmp/guacamolemysql.sql" do
   source "guacamolemysql.sql"
-  mode 755
+  mode "00755"
 end
 
 cookbook_file '/tmp/initdb.sql' do
   source 'initdb.sql'
-  mode 755
+  mode "00755"
 end
 
 bash 'guacamole_db_create' do
