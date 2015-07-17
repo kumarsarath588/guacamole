@@ -18,7 +18,6 @@ if node['platform']=="ubuntu"
    distribution 'trusty'
   end
   bash "apt-get update" do
-   user root
    code <<-EOH
    sudo apt-get update
    EOH
