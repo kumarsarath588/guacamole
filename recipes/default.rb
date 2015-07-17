@@ -10,7 +10,7 @@
 
 #Package installation
 
-include_recipe "java"
+
 if node['platform']=="ubuntu"
   apt_repository 'libssh2' do
    uri        'http://kr.archive.ubuntu.com/ubuntu'
@@ -23,7 +23,7 @@ if node['platform']=="ubuntu"
    EOH
   end
 end
-
+include_recipe "java"
 
 if node['platform']=="centos" or node['platform']=="amazon"
   package ['cairo-devel', 'libpng-devel', 'uuid-devel', 'freerdp-devel', 'pango-devel', 'libssh2-devel', 'libvncserver-devel', 'pulseaudio-libs-devel', 'openssl-devel', 'libvorbis-devel', 'wget', 'unzip', 'gcc', 'gcc-c++', 'libpng-devel', 'cairo-devel', 'uuid-devel' ] do
