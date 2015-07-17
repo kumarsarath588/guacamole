@@ -43,13 +43,13 @@ libtelnet_filename = File.basename(libtelnet_url)
 libtelnet_devel_filename = File.basename(libtelnet_devel_url)
 
 remote_file "/tmp/#{libtelnet_filename}" do
-  source "#{libtelnet_url}"
+  source libtelnet_url
   mode '0700'
   action :create_if_missing
 end
 
 remote_file "/tmp/#{libtelnet_devel_filename}" do
-  source "#{libtelnet_devel_url}"
+  source libtelnet_devel_url
   mode '0700'
   action :create_if_missing
 end
@@ -124,7 +124,7 @@ end
 
 %w[ guacamole-auth-jdbc-mysql-0.9.7.jar mysql-connector-java-5.1.35-bin.jar ].each do |file|
   cookbook_file "/var/lib/guacamole/classpath/#{file}" do
-    source "#{file}"
+   source file
     action :create
   end
 end
