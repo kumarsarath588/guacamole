@@ -2,7 +2,7 @@
 driver:
   name: ec2
   aws_ssh_key_id: sarath
-  ssh_key: ../ec2_keys/sarath.pem
+  ssh_key: /home/jenkins/kitchen/ec2_keys/sarath.pem
   region: us-west-2
 
 provisioner:
