@@ -1,1 +1,6 @@
---- {}
+---
+image_id: e38b3ab6cdf7
+container_id: b012ab5fd29d324548e46d8200bbf237501da8dbfe8ee3c80c059e0097749667
+hostname: localhost
+port: 32768
+last_action: create

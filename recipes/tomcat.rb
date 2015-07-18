@@ -13,7 +13,6 @@ package 'unzip'
 
 bash 'tomcat_install' do
   user 'root'
-  cwd '/tmp'
   code <<-EOH
   unzip #{base_package_filename}
   mv apache-tomcat-8.0.24 /opt/tomcat
