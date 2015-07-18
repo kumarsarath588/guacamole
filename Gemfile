@@ -29,6 +29,7 @@ group :test do
   gem 'kitchen-digitalocean'
   gem 'kitchen-vagrant'
   gem 'kitchen-ec2'
+  gem 'kitchen-docker'
   
 end
 

@@ -1,0 +1,37 @@
+I, [2015-07-18T15:49:13.730761 #30806]  INFO -- Kitchen: -----> Starting Kitchen (v1.4.1)
+E, [2015-07-18T15:49:13.735442 #30806] ERROR -- Kitchen: ------Exception-------
+E, [2015-07-18T15:49:13.735494 #30806] ERROR -- Kitchen: Class: Kitchen::ClientError
+E, [2015-07-18T15:49:13.735520 #30806] ERROR -- Kitchen: Message: Could not load the 'docker' driver from the load path. Please ensure that your driver is installed as a gem or included in your Gemfile if using Bundler.
+E, [2015-07-18T15:49:13.735543 #30806] ERROR -- Kitchen: ---Nested Exception---
+E, [2015-07-18T15:49:13.735565 #30806] ERROR -- Kitchen: Class: LoadError
+E, [2015-07-18T15:49:13.735593 #30806] ERROR -- Kitchen: Message: cannot load such file -- kitchen/driver/docker
+E, [2015-07-18T15:49:13.735619 #30806] ERROR -- Kitchen: ------Backtrace-------
+E, [2015-07-18T15:49:13.735641 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/driver.rb:50:in `rescue in for_plugin'
+E, [2015-07-18T15:49:13.735663 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/driver.rb:40:in `for_plugin'
+E, [2015-07-18T15:49:13.735686 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/config.rb:226:in `new_driver'
+E, [2015-07-18T15:49:13.735707 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/config.rb:239:in `new_instance'
+E, [2015-07-18T15:49:13.735729 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/config.rb:135:in `block in build_instances'
+E, [2015-07-18T15:49:13.735750 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/config.rb:134:in `map'
+E, [2015-07-18T15:49:13.735779 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/config.rb:134:in `with_index'
+E, [2015-07-18T15:49:13.735802 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/config.rb:134:in `build_instances'
+E, [2015-07-18T15:49:13.735823 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/config.rb:110:in `instances'
+E, [2015-07-18T15:49:13.735845 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/command.rb:115:in `filtered_instances'
+E, [2015-07-18T15:49:13.735866 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/command.rb:145:in `parse_subcommand'
+E, [2015-07-18T15:49:13.735888 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/command/test.rb:43:in `block in call'
+E, [2015-07-18T15:49:13.735910 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/benchmark.rb:288:in `measure'
+E, [2015-07-18T15:49:13.735932 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/command/test.rb:41:in `call'
+E, [2015-07-18T15:49:13.735954 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/cli.rb:56:in `perform'
+E, [2015-07-18T15:49:13.735975 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/cli.rb:217:in `test'
+E, [2015-07-18T15:49:13.735997 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/thor-0.19.1/lib/thor/command.rb:27:in `run'
+E, [2015-07-18T15:49:13.736019 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/thor-0.19.1/lib/thor/invocation.rb:126:in `invoke_command'
+E, [2015-07-18T15:49:13.736046 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/cli.rb:308:in `invoke_task'
+E, [2015-07-18T15:49:13.736092 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/thor-0.19.1/lib/thor.rb:359:in `dispatch'
+E, [2015-07-18T15:49:13.736119 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/thor-0.19.1/lib/thor/base.rb:440:in `start'
+E, [2015-07-18T15:49:13.736142 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/bin/kitchen:13:in `block in <top (required)>'
+E, [2015-07-18T15:49:13.736172 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/errors.rb:154:in `with_friendly_errors'
+E, [2015-07-18T15:49:13.736199 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/bin/kitchen:13:in `<top (required)>'
+E, [2015-07-18T15:49:13.736239 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/bin/kitchen:23:in `load'
+E, [2015-07-18T15:49:13.736265 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/bin/kitchen:23:in `<main>'
+E, [2015-07-18T15:49:13.736286 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/bin/ruby_executable_hooks:15:in `eval'
+E, [2015-07-18T15:49:13.736308 #30806] ERROR -- Kitchen: /home/jenkins/.rvm/gems/ruby-2.2.1/bin/ruby_executable_hooks:15:in `<main>'
+E, [2015-07-18T15:49:13.736330 #30806] ERROR -- Kitchen: ----------------------
