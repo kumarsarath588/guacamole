@@ -97,7 +97,7 @@ end
     owner 'jenkins'
     group 'jenkins'
     mode '0755'
-    recursive :true
+    recursive true
     action :create
   end
 end
