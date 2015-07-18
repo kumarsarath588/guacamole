@@ -9,7 +9,7 @@ platforms:
   driver_config:
     image: "centos"
     platform: "rhel"
-    dockerfile: Dockerfile.centos
+    dockerfile: Dockerfile
 
 suites:
   - name: default

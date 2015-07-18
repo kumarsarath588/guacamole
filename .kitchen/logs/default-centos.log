@@ -1,0 +1,33 @@
+I, [2015-07-18T15:51:06.833149 #30831]  INFO -- default-centos: -----> Cleaning up any prior instances of <default-centos>
+I, [2015-07-18T15:51:06.833288 #30831]  INFO -- default-centos: -----> Destroying <default-centos>...
+I, [2015-07-18T15:51:06.833949 #30831]  INFO -- default-centos: Finished destroying <default-centos> (0m0.00s).
+I, [2015-07-18T15:51:06.834168 #30831]  INFO -- default-centos: -----> Testing <default-centos>
+I, [2015-07-18T15:51:06.834249 #30831]  INFO -- default-centos: -----> Creating <default-centos>...
+E, [2015-07-18T15:51:06.834374 #30831] ERROR -- default-centos: Create failed on instance <default-centos>.
+E, [2015-07-18T15:51:06.834456 #30831] ERROR -- default-centos: ------Exception-------
+E, [2015-07-18T15:51:06.834483 #30831] ERROR -- default-centos: Class: Errno::ENOENT
+E, [2015-07-18T15:51:06.834502 #30831] ERROR -- default-centos: Message: No such file or directory @ rb_sysopen - /home/jenkins/kitchen/guacamole/Dockerfile.centos
+E, [2015-07-18T15:51:06.834520 #30831] ERROR -- default-centos: ------Backtrace-------
+E, [2015-07-18T15:51:06.834538 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/kitchen-docker-2.1.0/lib/kitchen/driver/docker.rb:194:in `read'
+E, [2015-07-18T15:51:06.834556 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/kitchen-docker-2.1.0/lib/kitchen/driver/docker.rb:194:in `dockerfile'
+E, [2015-07-18T15:51:06.834574 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/kitchen-docker-2.1.0/lib/kitchen/driver/docker.rb:215:in `build_image'
+E, [2015-07-18T15:51:06.834592 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/kitchen-docker-2.1.0/lib/kitchen/driver/docker.rb:94:in `create'
+E, [2015-07-18T15:51:06.834609 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:424:in `public_send'
+E, [2015-07-18T15:51:06.834627 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:424:in `block in perform_action'
+E, [2015-07-18T15:51:06.834645 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:488:in `call'
+E, [2015-07-18T15:51:06.834671 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:488:in `synchronize_or_call'
+E, [2015-07-18T15:51:06.834700 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:453:in `block in action'
+E, [2015-07-18T15:51:06.834719 #30831] ERROR -- default-centos: /home/jenkins/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/benchmark.rb:288:in `measure'
+E, [2015-07-18T15:51:06.834738 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:452:in `action'
+E, [2015-07-18T15:51:06.834756 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:424:in `perform_action'
+E, [2015-07-18T15:51:06.834774 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:352:in `create_action'
+E, [2015-07-18T15:51:06.834792 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:341:in `block in transition_to'
+E, [2015-07-18T15:51:06.834836 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:340:in `each'
+E, [2015-07-18T15:51:06.834856 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:340:in `transition_to'
+E, [2015-07-18T15:51:06.834880 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:160:in `verify'
+E, [2015-07-18T15:51:06.834913 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:189:in `block in test'
+E, [2015-07-18T15:51:06.834941 #30831] ERROR -- default-centos: /home/jenkins/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/benchmark.rb:288:in `measure'
+E, [2015-07-18T15:51:06.834962 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:185:in `test'
+E, [2015-07-18T15:51:06.834987 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/command.rb:176:in `public_send'
+E, [2015-07-18T15:51:06.835019 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/command.rb:176:in `block (2 levels) in run_action'
+E, [2015-07-18T15:51:06.835044 #30831] ERROR -- default-centos: ----------------------

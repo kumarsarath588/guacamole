@@ -189,6 +189,8 @@ GEM
     kitchen-digitalocean (0.9.1)
       droplet_kit (~> 1.0)
       test-kitchen (~> 1.2)
+    kitchen-docker (2.1.0)
+      test-kitchen (>= 1.0.0)
     kitchen-ec2 (0.10.0)
       aws-sdk (~> 2)
       excon
@@ -410,6 +412,7 @@ DEPENDENCIES
   guard-kitchen
   guard-rspec
   kitchen-digitalocean
+  kitchen-docker
   kitchen-ec2
   kitchen-vagrant
   omnijack
