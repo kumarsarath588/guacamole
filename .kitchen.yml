@@ -13,6 +13,8 @@ platforms:
 
 suites:
   - name: default
+    busser:
+      sudo: true
     run_list:
       - recipe[guacamole::default]
 

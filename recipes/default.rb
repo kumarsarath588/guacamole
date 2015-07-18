@@ -94,8 +94,8 @@ end
 
 %w[ /var/lib/guacamole/classpath /root/.guacamole ].each do |dir|
   directory "#{dir}" do
-    owner 'jenkins'
-    group 'jenkins'
+    owner 'root'
+    group 'root'
     mode '0755'
     recursive true
     action :create
