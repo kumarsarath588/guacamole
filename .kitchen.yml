@@ -10,6 +10,8 @@ platforms:
     image: "centos"
     platform: "rhel"
     dockerfile: Dockerfile
+- name: ubuntu
+  
 
 suites:
   - name: default
