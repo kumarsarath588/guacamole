@@ -1,272 +1,33 @@
-I, [2015-07-18T15:58:40.762836 #12519]  INFO -- default-centos: -----> Cleaning up any prior instances of <default-centos>
-I, [2015-07-18T15:58:40.763065 #12519]  INFO -- default-centos: -----> Destroying <default-centos>...
-I, [2015-07-18T15:58:40.763775 #12519]  INFO -- default-centos: Finished destroying <default-centos> (0m0.00s).
-I, [2015-07-18T15:58:40.764130 #12519]  INFO -- default-centos: -----> Testing <default-centos>
-I, [2015-07-18T15:58:40.764206 #12519]  INFO -- default-centos: -----> Creating <default-centos>...
-I, [2015-07-18T15:58:40.781041 #12519]  INFO -- default-centos: Sending build context to Docker daemon 2.048 kB
-I, [2015-07-18T15:58:40.781129 #12519]  INFO -- default-centos: Sending build context to Docker daemon 
-I, [2015-07-18T15:58:40.798021 #12519]  INFO -- default-centos: Step 0 : FROM jdeathe/centos-ssh
-I, [2015-07-18T15:58:40.807964 #12519]  INFO -- default-centos:  ---> b071db8f6e23
-I, [2015-07-18T15:58:40.808053 #12519]  INFO -- default-centos: Step 1 : RUN yum clean all
-I, [2015-07-18T15:58:41.333636 #12519]  INFO -- default-centos:  ---> Using cache
-I, [2015-07-18T15:58:41.333722 #12519]  INFO -- default-centos:  ---> 894b2b9d735c
-I, [2015-07-18T15:58:41.333747 #12519]  INFO -- default-centos: Step 2 : RUN yum install -y sudo openssh-server openssh-clients which curl htop crontabs initscripts net-tools passwd tar deltarpm
-I, [2015-07-18T15:58:41.541672 #12519]  INFO -- default-centos:  ---> Running in 15755d68c179
-I, [2015-07-18T15:58:42.235642 #12519]  INFO -- default-centos: Loaded plugins: fastestmirror
-I, [2015-07-18T15:58:42.249124 #12519]  INFO -- default-centos: Setting up Install Process
-I, [2015-07-18T15:58:42.293623 #12519]  INFO -- default-centos: Determining fastest mirrors
-I, [2015-07-18T15:58:49.727218 #12519]  INFO -- default-centos:  * base: centos.excellmedia.net
-I, [2015-07-18T15:58:49.727297 #12519]  INFO -- default-centos:  * epel: kartolo.sby.datautama.net.id
-I, [2015-07-18T15:58:49.727322 #12519]  INFO -- default-centos:  * extras: centos.excellmedia.net
-I, [2015-07-18T15:58:49.727343 #12519]  INFO -- default-centos:  * updates: centos.excellmedia.net
-I, [2015-07-18T16:00:59.432709 #12519]  INFO -- default-centos: Package sudo-1.8.6p3-15.el6.x86_64 already installed and latest version
-I, [2015-07-18T16:00:59.478636 #12519]  INFO -- default-centos: Package openssh-server-5.3p1-104.el6_6.1.x86_64 already installed and latest version
-I, [2015-07-18T16:00:59.525403 #12519]  INFO -- default-centos: Package openssh-clients-5.3p1-104.el6_6.1.x86_64 already installed and latest version
-I, [2015-07-18T16:00:59.601154 #12519]  INFO -- default-centos: Package net-tools-1.60-110.el6_2.x86_64 already installed and latest version
-I, [2015-07-18T16:00:59.601238 #12519]  INFO -- default-centos: Package passwd-0.77-4.el6_2.2.x86_64 already installed and latest version
-I, [2015-07-18T16:00:59.601263 #12519]  INFO -- default-centos: Resolving Dependencies
-I, [2015-07-18T16:00:59.601285 #12519]  INFO -- default-centos: --> Running transaction check
-I, [2015-07-18T16:00:59.601305 #12519]  INFO -- default-centos: ---> Package crontabs.noarch 0:1.10-33.el6 will be installed
-I, [2015-07-18T16:00:59.625637 #12519]  INFO -- default-centos: --> Processing Dependency: /etc/cron.d for package: crontabs-1.10-33.el6.noarch
-I, [2015-07-18T16:00:59.625730 #12519]  INFO -- default-centos: ---> Package curl.x86_64 0:7.19.7-37.el6_5.3 will be updated
-I, [2015-07-18T16:00:59.631610 #12519]  INFO -- default-centos: ---> Package curl.x86_64 0:7.19.7-40.el6_6.4 will be an update
-I, [2015-07-18T16:00:59.657695 #12519]  INFO -- default-centos: --> Processing Dependency: libcurl = 7.19.7-40.el6_6.4 for package: curl-7.19.7-40.el6_6.4.x86_64
-I, [2015-07-18T16:00:59.673610 #12519]  INFO -- default-centos: ---> Package deltarpm.x86_64 0:3.5-0.5.20090913git.el6 will be installed
-I, [2015-07-18T16:00:59.673686 #12519]  INFO -- default-centos: ---> Package htop.x86_64 0:1.0.1-2.el6 will be installed
-I, [2015-07-18T16:00:59.674938 #12519]  INFO -- default-centos: ---> Package initscripts.x86_64 0:9.03.46-1.el6.centos will be updated
-I, [2015-07-18T16:00:59.710727 #12519]  INFO -- default-centos: ---> Package initscripts.x86_64 0:9.03.46-1.el6.centos.1 will be an update
-I, [2015-07-18T16:00:59.737621 #12519]  INFO -- default-centos: ---> Package tar.x86_64 2:1.23-11.el6 will be installed
-I, [2015-07-18T16:00:59.742802 #12519]  INFO -- default-centos: ---> Package which.x86_64 0:2.19-6.el6 will be installed
-I, [2015-07-18T16:00:59.742857 #12519]  INFO -- default-centos: --> Running transaction check
-I, [2015-07-18T16:00:59.742884 #12519]  INFO -- default-centos: ---> Package cronie.x86_64 0:1.4.4-12.el6 will be installed
-I, [2015-07-18T16:00:59.770626 #12519]  INFO -- default-centos: --> Processing Dependency: syslog for package: cronie-1.4.4-12.el6.x86_64
-I, [2015-07-18T16:00:59.787598 #12519]  INFO -- default-centos: --> Processing Dependency: dailyjobs for package: cronie-1.4.4-12.el6.x86_64
-I, [2015-07-18T16:00:59.787698 #12519]  INFO -- default-centos: --> Processing Dependency: /usr/sbin/sendmail for package: cronie-1.4.4-12.el6.x86_64
-I, [2015-07-18T16:00:59.839629 #12519]  INFO -- default-centos: ---> Package libcurl.x86_64 0:7.19.7-37.el6_5.3 will be updated
-I, [2015-07-18T16:00:59.839720 #12519]  INFO -- default-centos: ---> Package libcurl.x86_64 0:7.19.7-40.el6_6.4 will be an update
-I, [2015-07-18T16:00:59.856651 #12519]  INFO -- default-centos: --> Running transaction check
-I, [2015-07-18T16:00:59.856742 #12519]  INFO -- default-centos: ---> Package cronie-anacron.x86_64 0:1.4.4-12.el6 will be installed
-I, [2015-07-18T16:00:59.856767 #12519]  INFO -- default-centos: ---> Package rsyslog.x86_64 0:5.8.10-10.el6_6 will be installed
-I, [2015-07-18T16:00:59.856801 #12519]  INFO -- default-centos: --> Processing Dependency: logrotate >= 3.5.2 for package: rsyslog-5.8.10-10.el6_6.x86_64
-I, [2015-07-18T16:00:59.856832 #12519]  INFO -- default-centos: ---> Package ssmtp.x86_64 0:2.61-22.el6 will be installed
-I, [2015-07-18T16:00:59.856871 #12519]  INFO -- default-centos: --> Running transaction check
-I, [2015-07-18T16:00:59.856894 #12519]  INFO -- default-centos: ---> Package logrotate.x86_64 0:3.7.8-17.el6 will be installed
-I, [2015-07-18T16:00:59.985736 #12519]  INFO -- default-centos: --> Finished Dependency Resolution
-I, [2015-07-18T16:01:00.006452 #12519]  INFO -- default-centos: 
-I, [2015-07-18T16:01:00.006548 #12519]  INFO -- default-centos: Dependencies Resolved
-I, [2015-07-18T16:01:00.010415 #12519]  INFO -- default-centos: 
-I, [2015-07-18T16:01:00.010479 #12519]  INFO -- default-centos: ================================================================================
-I, [2015-07-18T16:01:00.010512 #12519]  INFO -- default-centos:  Package            Arch       Version                        Repository   Size
-I, [2015-07-18T16:01:00.010545 #12519]  INFO -- default-centos: ================================================================================
-I, [2015-07-18T16:01:00.010568 #12519]  INFO -- default-centos: Installing:
-I, [2015-07-18T16:01:00.010590 #12519]  INFO -- default-centos:  crontabs           noarch     1.10-33.el6                    base         10 k
-I, [2015-07-18T16:01:00.010610 #12519]  INFO -- default-centos:  deltarpm           x86_64     3.5-0.5.20090913git.el6        base         71 k
-I, [2015-07-18T16:01:00.010631 #12519]  INFO -- default-centos:  htop               x86_64     1.0.1-2.el6                    epel         75 k
-I, [2015-07-18T16:01:00.010652 #12519]  INFO -- default-centos:  tar                x86_64     2:1.23-11.el6                  base        809 k
-I, [2015-07-18T16:01:00.010673 #12519]  INFO -- default-centos:  which              x86_64     2.19-6.el6                     base         38 k
-I, [2015-07-18T16:01:00.010692 #12519]  INFO -- default-centos: Updating:
-I, [2015-07-18T16:01:00.010712 #12519]  INFO -- default-centos:  curl               x86_64     7.19.7-40.el6_6.4              updates     194 k
-I, [2015-07-18T16:01:00.010732 #12519]  INFO -- default-centos:  initscripts        x86_64     9.03.46-1.el6.centos.1         updates     943 k
-I, [2015-07-18T16:01:00.010761 #12519]  INFO -- default-centos: Installing for dependencies:
-I, [2015-07-18T16:01:00.010812 #12519]  INFO -- default-centos:  cronie             x86_64     1.4.4-12.el6                   base         73 k
-I, [2015-07-18T16:01:00.010851 #12519]  INFO -- default-centos:  cronie-anacron     x86_64     1.4.4-12.el6                   base         30 k
-I, [2015-07-18T16:01:00.010879 #12519]  INFO -- default-centos:  logrotate          x86_64     3.7.8-17.el6                   base         55 k
-I, [2015-07-18T16:01:00.010901 #12519]  INFO -- default-centos:  rsyslog            x86_64     5.8.10-10.el6_6                updates     650 k
-I, [2015-07-18T16:01:00.010933 #12519]  INFO -- default-centos:  ssmtp              x86_64     2.61-22.el6                    epel         53 k
-I, [2015-07-18T16:01:00.010955 #12519]  INFO -- default-centos: Updating for dependencies:
-I, [2015-07-18T16:01:00.010975 #12519]  INFO -- default-centos:  libcurl            x86_64     7.19.7-40.el6_6.4              updates     166 k
-I, [2015-07-18T16:01:00.010995 #12519]  INFO -- default-centos: 
-I, [2015-07-18T16:01:00.011014 #12519]  INFO -- default-centos: Transaction Summary
-I, [2015-07-18T16:01:00.011070 #12519]  INFO -- default-centos: ================================================================================
-I, [2015-07-18T16:01:00.011101 #12519]  INFO -- default-centos: Install      10 Package(s)
-I, [2015-07-18T16:01:00.011124 #12519]  INFO -- default-centos: Upgrade       3 Package(s)
-I, [2015-07-18T16:01:00.011143 #12519]  INFO -- default-centos: 
-I, [2015-07-18T16:01:00.011161 #12519]  INFO -- default-centos: Total download size: 3.1 M
-I, [2015-07-18T16:01:00.011180 #12519]  INFO -- default-centos: Downloading Packages:
-I, [2015-07-18T16:01:29.231636 #12519]  INFO -- default-centos: --------------------------------------------------------------------------------
-I, [2015-07-18T16:01:29.231726 #12519]  INFO -- default-centos: Total                                           108 kB/s | 3.1 MB     00:29     
-I, [2015-07-18T16:01:29.234490 #12519]  INFO -- default-centos: Running rpm_check_debug
-I, [2015-07-18T16:01:29.283656 #12519]  INFO -- default-centos: Running Transaction Test
-I, [2015-07-18T16:01:29.347638 #12519]  INFO -- default-centos: Transaction Test Succeeded
-I, [2015-07-18T16:01:29.402495 #12519]  INFO -- default-centos: Running Transaction
-I, [2015-07-18T16:01:29.876203 #12519]  INFO -- default-centos:   Updating   : initscripts-9.03.46-1.el6.centos.1.x86_64                   1/16 
-I, [2015-07-18T16:01:29.959822 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:30.065878 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:30.173150 #12519]  INFO -- default-centos: [91mNon-fatal POSTIN scriptlet failure in rpm package ssmtp-2.61-22.el6.x86_64
-I, [2015-07-18T16:01:30.173230 #12519]  INFO -- default-centos: [0m 
-I, [2015-07-18T16:01:30.173255 #12519]  INFO -- default-centos: failed to link /usr/share/man/man1/mailq.1.gz -> /etc/alternatives/mta-mailqman: No such file or directory
-I, [2015-07-18T16:01:30.173278 #12519]  INFO -- default-centos: failed to link /usr/share/man/man1/newaliases.1.gz -> /etc/alternatives/mta-newaliasesman: No such file or directory
-I, [2015-07-18T16:01:30.173300 #12519]  INFO -- default-centos: failed to link /usr/share/man/man8/sendmail.8.gz -> /etc/alternatives/mta-sendmailman: No such file or directory
-I, [2015-07-18T16:01:30.173322 #12519]  INFO -- default-centos: warning: %post(ssmtp-2.61-22.el6.x86_64) scriptlet failed, exit status 2
-I, [2015-07-18T16:01:30.280630 #12519]  INFO -- default-centos:   Installing : cronie-anacron-1.4.4-12.el6.x86_64                          5/16 
-I, [2015-07-18T16:01:30.377405 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:30.401756 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:30.565404 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:30.588220 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:30.604954 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:30.617253 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:30.709753 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:30.709865 #12519]  INFO -- default-centos: /usr/share/info/dir: could not read (No such file or directory) and could not create (No such file or directory)
-I, [2015-07-18T16:01:30.897346 #12519]  INFO -- default-centos:   Installing : 2:tar-1.23-11.el6.x86_64                                   13/16 
-I, [2015-07-18T16:01:30.914645 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.083405 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.103691 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.109493 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.114307 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.118092 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.121350 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.125785 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.128818 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.136247 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.140906 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.144937 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.150854 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.155086 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.159140 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.169657 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.169763 #12519]  INFO -- default-centos:   Verifying  : curl-7.19.7-37.el6_5.3.x86_64                              14/16 
-I, [2015-07-18T16:01:31.169789 #12519]  INFO -- default-centos:   Verifying  : libcurl-7.19.7-37.el6_5.3.x86_64                           15/16 
-I, [2015-07-18T16:01:31.183238 #12519]  INFO -- default-centos:  
-I, [2015-07-18T16:01:31.183320 #12519]  INFO -- default-centos: 
-I, [2015-07-18T16:01:31.183346 #12519]  INFO -- default-centos: Installed:
-I, [2015-07-18T16:01:31.183368 #12519]  INFO -- default-centos:   crontabs.noarch 0:1.10-33.el6    deltarpm.x86_64 0:3.5-0.5.20090913git.el6   
-I, [2015-07-18T16:01:31.183391 #12519]  INFO -- default-centos:   htop.x86_64 0:1.0.1-2.el6        tar.x86_64 2:1.23-11.el6                    
-I, [2015-07-18T16:01:31.183418 #12519]  INFO -- default-centos:   which.x86_64 0:2.19-6.el6       
-I, [2015-07-18T16:01:31.183445 #12519]  INFO -- default-centos: 
-I, [2015-07-18T16:01:31.183497 #12519]  INFO -- default-centos: Dependency Installed:
-I, [2015-07-18T16:01:31.183521 #12519]  INFO -- default-centos:   cronie.x86_64 0:1.4.4-12.el6         cronie-anacron.x86_64 0:1.4.4-12.el6     
-I, [2015-07-18T16:01:31.183543 #12519]  INFO -- default-centos:   logrotate.x86_64 0:3.7.8-17.el6      rsyslog.x86_64 0:5.8.10-10.el6_6         
-I, [2015-07-18T16:01:31.183564 #12519]  INFO -- default-centos:   ssmtp.x86_64 0:2.61-22.el6          
-I, [2015-07-18T16:01:31.183590 #12519]  INFO -- default-centos: 
-I, [2015-07-18T16:01:31.183610 #12519]  INFO -- default-centos: Updated:
-I, [2015-07-18T16:01:31.183629 #12519]  INFO -- default-centos:   curl.x86_64 0:7.19.7-40.el6_6.4  initscripts.x86_64 0:9.03.46-1.el6.centos.1 
-I, [2015-07-18T16:01:31.183654 #12519]  INFO -- default-centos: 
-I, [2015-07-18T16:01:31.183703 #12519]  INFO -- default-centos: Dependency Updated:
-I, [2015-07-18T16:01:31.183727 #12519]  INFO -- default-centos:   libcurl.x86_64 0:7.19.7-40.el6_6.4                                            
-I, [2015-07-18T16:01:31.183752 #12519]  INFO -- default-centos: 
-I, [2015-07-18T16:01:31.183773 #12519]  INFO -- default-centos: Complete!
-I, [2015-07-18T16:01:32.874554 #12519]  INFO -- default-centos:  ---> be6a16cd0e7e
-I, [2015-07-18T16:01:33.553659 #12519]  INFO -- default-centos: Removing intermediate container 15755d68c179
-I, [2015-07-18T16:01:33.553837 #12519]  INFO -- default-centos: Step 3 : RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
-I, [2015-07-18T16:01:33.603979 #12519]  INFO -- default-centos:  ---> Running in 54637590725d
-I, [2015-07-18T16:01:34.124306 #12519]  INFO -- default-centos: [91mEnter passphrase (empty for no passphrase): Enter same passphrase again: [0mGenerating public/private rsa key pair.
-I, [2015-07-18T16:01:34.124392 #12519]  INFO -- default-centos: Your identification has been saved in /etc/ssh/ssh_host_rsa_key.
-I, [2015-07-18T16:01:34.124419 #12519]  INFO -- default-centos: Your public key has been saved in /etc/ssh/ssh_host_rsa_key.pub.
-I, [2015-07-18T16:01:34.124508 #12519]  INFO -- default-centos: The key fingerprint is:
-I, [2015-07-18T16:01:34.124532 #12519]  INFO -- default-centos: f4:20:11:68:ec:98:4f:65:39:fb:a4:5d:17:d6:b0:30 root@40a225bdb73e
-I, [2015-07-18T16:01:34.124552 #12519]  INFO -- default-centos: The key's randomart image is:
-I, [2015-07-18T16:01:34.124572 #12519]  INFO -- default-centos: +--[ RSA 2048]----+
-I, [2015-07-18T16:01:34.124597 #12519]  INFO -- default-centos: |   . .oo  E .o   |
-I, [2015-07-18T16:01:34.124618 #12519]  INFO -- default-centos: |    + =.   oo..  |
-I, [2015-07-18T16:01:34.124637 #12519]  INFO -- default-centos: |   = o.oo  ...   |
-I, [2015-07-18T16:01:34.124656 #12519]  INFO -- default-centos: |  o o .o.o. .    |
-I, [2015-07-18T16:01:34.124674 #12519]  INFO -- default-centos: |   o   =S...     |
-I, [2015-07-18T16:01:34.124694 #12519]  INFO -- default-centos: |    . . o        |
-I, [2015-07-18T16:01:34.124713 #12519]  INFO -- default-centos: |                 |
-I, [2015-07-18T16:01:34.124732 #12519]  INFO -- default-centos: |                 |
-I, [2015-07-18T16:01:34.124764 #12519]  INFO -- default-centos: |                 |
-I, [2015-07-18T16:01:34.124796 #12519]  INFO -- default-centos: +-----------------+
-I, [2015-07-18T16:01:34.909333 #12519]  INFO -- default-centos:  ---> bdd48a56c225
-I, [2015-07-18T16:01:35.564662 #12519]  INFO -- default-centos: Removing intermediate container 54637590725d
-I, [2015-07-18T16:01:35.564735 #12519]  INFO -- default-centos: Step 4 : RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
-I, [2015-07-18T16:01:35.607504 #12519]  INFO -- default-centos:  ---> Running in c8cffc085255
-I, [2015-07-18T16:01:35.809189 #12519]  INFO -- default-centos: [91mEnter passphrase (empty for no passphrase): Enter same passphrase again: [0mGenerating public/private dsa key pair.
-I, [2015-07-18T16:01:35.809281 #12519]  INFO -- default-centos: Your identification has been saved in /etc/ssh/ssh_host_dsa_key.
-I, [2015-07-18T16:01:35.809317 #12519]  INFO -- default-centos: Your public key has been saved in /etc/ssh/ssh_host_dsa_key.pub.
-I, [2015-07-18T16:01:35.809340 #12519]  INFO -- default-centos: The key fingerprint is:
-I, [2015-07-18T16:01:35.809360 #12519]  INFO -- default-centos: 73:fa:88:21:f9:53:83:c0:03:20:af:09:f2:12:e4:37 root@40a225bdb73e
-I, [2015-07-18T16:01:35.809381 #12519]  INFO -- default-centos: The key's randomart image is:
-I, [2015-07-18T16:01:35.809401 #12519]  INFO -- default-centos: +--[ DSA 1024]----+
-I, [2015-07-18T16:01:35.809421 #12519]  INFO -- default-centos: |oo               |
-I, [2015-07-18T16:01:35.809441 #12519]  INFO -- default-centos: |+..              |
-I, [2015-07-18T16:01:35.809565 #12519]  INFO -- default-centos: |+..E             |
-I, [2015-07-18T16:01:35.809590 #12519]  INFO -- default-centos: |o=. =            |
-I, [2015-07-18T16:01:35.809610 #12519]  INFO -- default-centos: |+ .  o .S .      |
-I, [2015-07-18T16:01:35.809635 #12519]  INFO -- default-centos: | .   .. o+       |
-I, [2015-07-18T16:01:35.809655 #12519]  INFO -- default-centos: |    o ....       |
-I, [2015-07-18T16:01:35.809675 #12519]  INFO -- default-centos: |     o.o o       |
-I, [2015-07-18T16:01:35.809694 #12519]  INFO -- default-centos: |      o.. .      |
-I, [2015-07-18T16:01:35.809712 #12519]  INFO -- default-centos: +-----------------+
-I, [2015-07-18T16:01:36.602094 #12519]  INFO -- default-centos:  ---> db49455a23f7
-I, [2015-07-18T16:01:37.310290 #12519]  INFO -- default-centos: Removing intermediate container c8cffc085255
-I, [2015-07-18T16:01:37.310365 #12519]  INFO -- default-centos: Step 5 : RUN mkdir -p /var/run/sshd
-I, [2015-07-18T16:01:37.355821 #12519]  INFO -- default-centos:  ---> Running in 829b93dbfabf
-I, [2015-07-18T16:01:38.275322 #12519]  INFO -- default-centos:  ---> cbdda38e2dc9
-I, [2015-07-18T16:01:38.945667 #12519]  INFO -- default-centos: Removing intermediate container 829b93dbfabf
-I, [2015-07-18T16:01:38.945740 #12519]  INFO -- default-centos: Step 6 : RUN useradd -d /home/kitchen -m -s /bin/bash kitchen
-I, [2015-07-18T16:01:38.997452 #12519]  INFO -- default-centos:  ---> Running in 239ffe2fc986
-I, [2015-07-18T16:01:39.938236 #12519]  INFO -- default-centos:  ---> 6788872c30ff
-I, [2015-07-18T16:01:40.592625 #12519]  INFO -- default-centos: Removing intermediate container 239ffe2fc986
-I, [2015-07-18T16:01:40.592706 #12519]  INFO -- default-centos: Step 7 : RUN echo kitchen:kitchen | chpasswd
-I, [2015-07-18T16:01:40.640791 #12519]  INFO -- default-centos:  ---> Running in 8a1e17815f4c
-I, [2015-07-18T16:01:41.537100 #12519]  INFO -- default-centos:  ---> 81ae75ed570d
-I, [2015-07-18T16:01:42.205671 #12519]  INFO -- default-centos: Removing intermediate container 8a1e17815f4c
-I, [2015-07-18T16:01:42.205745 #12519]  INFO -- default-centos: Step 8 : RUN echo 'kitchen ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-I, [2015-07-18T16:01:42.254613 #12519]  INFO -- default-centos:  ---> Running in f75ca29ae62f
-I, [2015-07-18T16:01:43.159136 #12519]  INFO -- default-centos:  ---> c2530b9d4376
-I, [2015-07-18T16:01:43.865671 #12519]  INFO -- default-centos: Removing intermediate container f75ca29ae62f
-I, [2015-07-18T16:01:43.865746 #12519]  INFO -- default-centos: Step 9 : RUN curl -L http://www.opscode.com/chef/install.sh | bash
-I, [2015-07-18T16:01:43.917900 #12519]  INFO -- default-centos:  ---> Running in d539327c962c
-I, [2015-07-18T16:01:44.376504 #12519]  INFO -- default-centos: [91m  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-I, [2015-07-18T16:01:44.376667 #12519]  INFO -- default-centos:                           Dload  Upload   Total   Spent    Left  Speed
-I, [2015-07-18T16:01:44.921666 #12519]  INFO -- default-centos: Downloading Chef  for el...
-I, [2015-07-18T16:01:44.921773 #12519]  INFO -- default-centos: downloading https://www.opscode.com/chef/metadata?v=&prerelease=false&nightlies=false&p=el&pv=6&m=x86_64
-I, [2015-07-18T16:01:44.921809 #12519]  INFO -- default-centos:   to file /tmp/install.sh.7/metadata.txt
-I, [2015-07-18T16:01:44.921832 #12519]  INFO -- default-centos: trying curl...
-I, [2015-07-18T16:01:44.926556 #12519]  INFO -- default-centos: [91m100 18736  100 18736    0     0  22029      0 --:--:-- --:--:-- --:--:-- 34441
-I, [2015-07-18T16:01:46.490272 #12519]  INFO -- default-centos: url	https://opscode-omnibus-packages.s3.amazonaws.com/el/6/x86_64/chef-12.4.1-1.el6.x86_64.rpm
-I, [2015-07-18T16:01:46.490358 #12519]  INFO -- default-centos: md5	f09a9ae589bb9040232c600b008ef812
-I, [2015-07-18T16:01:46.490383 #12519]  INFO -- default-centos: sha256	95150a4b3c3b2313bd206876e09e2fcf742f2fa4611951d52c79225becb32928
-I, [2015-07-18T16:01:46.492376 #12519]  INFO -- default-centos: downloaded metadata file looks valid...
-I, [2015-07-18T16:01:46.508620 #12519]  INFO -- default-centos: downloading https://opscode-omnibus-packages.s3.amazonaws.com/el/6/x86_64/chef-12.4.1-1.el6.x86_64.rpm
-I, [2015-07-18T16:01:46.508705 #12519]  INFO -- default-centos:   to file /tmp/install.sh.7/chef-12.4.1-1.el6.x86_64.rpm
-I, [2015-07-18T16:01:46.508737 #12519]  INFO -- default-centos: trying curl...
-I, [2015-07-18T16:04:44.814713 #12519]  INFO -- default-centos: Comparing checksum with sha256sum...
-I, [2015-07-18T16:04:45.102395 #12519]  INFO -- default-centos: 
-I, [2015-07-18T16:04:45.102626 #12519]  INFO -- default-centos: WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
-I, [2015-07-18T16:04:45.102662 #12519]  INFO -- default-centos: 
-I, [2015-07-18T16:04:45.102696 #12519]  INFO -- default-centos: You are installing an omnibus package without a version pin.  If you are installing
-I, [2015-07-18T16:04:45.102722 #12519]  INFO -- default-centos: on production servers via an automated process this is DANGEROUS and you will
-I, [2015-07-18T16:04:45.102744 #12519]  INFO -- default-centos: be upgraded without warning on new releases, even to new major releases.
-I, [2015-07-18T16:04:45.102777 #12519]  INFO -- default-centos: Letting the version float is only appropriate in desktop, test, development or
-I, [2015-07-18T16:04:45.102800 #12519]  INFO -- default-centos: CI/CD environments.
-I, [2015-07-18T16:04:45.102819 #12519]  INFO -- default-centos: 
-I, [2015-07-18T16:04:45.102838 #12519]  INFO -- default-centos: WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
-I, [2015-07-18T16:04:45.102858 #12519]  INFO -- default-centos: 
-I, [2015-07-18T16:04:45.102877 #12519]  INFO -- default-centos: Installing Chef 
-I, [2015-07-18T16:04:45.102896 #12519]  INFO -- default-centos: installing with rpm...
-I, [2015-07-18T16:04:45.164163 #12519]  INFO -- default-centos: [91mwarning: /tmp/install.sh.7/chef-12.4.1-1.el6.x86_64.rpm: Header V4 DSA/SHA1 Signature, key ID 83ef826a: NOKEY
-I, [2015-07-18T16:04:45.278642 #12519]  INFO -- default-centos: Preparing...                ##################################################
-I, [2015-07-18T16:04:47.601631 #12519]  INFO -- default-centos: chef                        ##################################################
-I, [2015-07-18T16:04:48.142304 #12519]  INFO -- default-centos: Thank you for installing Chef!
-I, [2015-07-18T16:04:55.240895 #12519]  INFO -- default-centos:  ---> e38b3ab6cdf7
-I, [2015-07-18T16:04:56.040640 #12519]  INFO -- default-centos: Removing intermediate container d539327c962c
-I, [2015-07-18T16:04:56.040711 #12519]  INFO -- default-centos: Successfully built e38b3ab6cdf7
-I, [2015-07-18T16:04:56.236950 #12519]  INFO -- default-centos: b012ab5fd29d324548e46d8200bbf237501da8dbfe8ee3c80c059e0097749667
-I, [2015-07-18T16:04:56.471053 #12519]  INFO -- default-centos: 0.0.0.0:32768
-I, [2015-07-18T16:04:56.499700 #12519]  INFO -- default-centos: Waiting for SSH service on localhost:32768, retrying in 3 seconds
-I, [2015-07-18T16:04:59.641248 #12519]  INFO -- default-centos: [SSH] Established
-I, [2015-07-18T16:04:59.642857 #12519]  INFO -- default-centos: Finished creating <default-centos> (6m18.88s).
-I, [2015-07-18T16:04:59.642961 #12519]  INFO -- default-centos: -----> Converging <default-centos>...
-W, [2015-07-18T16:04:59.643503 #12519]  WARN -- default-centos: Running legacy converge for 'Docker' Driver
-I, [2015-07-18T16:04:59.643934 #12519]  INFO -- default-centos: Preparing files for transfer
-I, [2015-07-18T16:04:59.644021 #12519]  INFO -- default-centos: Preparing dna.json
-I, [2015-07-18T16:04:59.648320 #12519]  INFO -- default-centos: Resolving cookbook dependencies with Berkshelf 3.3.0...
-I, [2015-07-18T16:05:00.518839 #12519]  INFO -- default-centos: Removing non-cookbook files before transfer
-I, [2015-07-18T16:05:00.521941 #12519]  INFO -- default-centos: Preparing solo.rb
-I, [2015-07-18T16:05:00.540035 #12519]  INFO -- default-centos: -----> Chef Omnibus installation detected (install only if missing)
-I, [2015-07-18T16:05:00.607099 #12519]  INFO -- default-centos: Transferring files to <default-centos>
-I, [2015-07-18T16:05:03.355819 #12519]  INFO -- default-centos: [2015-07-18T10:35:03+00:00] WARN: Please install an English UTF-8 locale for Chef to use, falling back to C locale and disabling UTF-8 support.
-I, [2015-07-18T16:05:04.238246 #12519]  INFO -- default-centos: Starting Chef Client, version 12.4.1
-I, [2015-07-18T16:05:05.151820 #12519]  INFO -- default-centos: Compiling Cookbooks...
-I, [2015-07-18T16:05:05.169748 #12519]  INFO -- default-centos: [2015-07-18T10:35:05+00:00] WARN: Cloning resource attributes for bash[libtelnet] from prior resource (CHEF-3694)
-I, [2015-07-18T16:05:05.169856 #12519]  INFO -- default-centos: [2015-07-18T10:35:05+00:00] WARN: Previous bash[libtelnet]: /tmp/kitchen/cookbooks/guacamole/recipes/default.rb:56:in `from_file'
-I, [2015-07-18T16:05:05.169892 #12519]  INFO -- default-centos: [2015-07-18T10:35:05+00:00] WARN: Current  bash[libtelnet]: /tmp/kitchen/cookbooks/guacamole/recipes/default.rb:65:in `from_file'
-I, [2015-07-18T16:05:05.170480 #12519]  INFO -- default-centos: [2015-07-18T10:35:05+00:00] WARN: Cloning resource attributes for service[tomcat] from prior resource (CHEF-3694)
-I, [2015-07-18T16:05:05.170542 #12519]  INFO -- default-centos: [2015-07-18T10:35:05+00:00] WARN: Previous service[tomcat]: /tmp/kitchen/cookbooks/guacamole/recipes/default.rb:114:in `from_file'
-I, [2015-07-18T16:05:05.170568 #12519]  INFO -- default-centos: [2015-07-18T10:35:05+00:00] WARN: Current  service[tomcat]: /tmp/kitchen/cookbooks/guacamole/recipes/default.rb:176:in `from_file'
-I, [2015-07-18T16:05:05.170591 #12519]  INFO -- default-centos: Converging 35 resources
-I, [2015-07-18T16:05:05.170612 #12519]  INFO -- default-centos: Recipe: guacamole::default
-I, [2015-07-18T16:05:05.170636 #12519]  INFO -- default-centos:   * apt_repository[libssh2] action add (skipped due to only_if)
-I, [2015-07-18T16:05:05.170657 #12519]  INFO -- default-centos:   * bash[apt-get update] action run (skipped due to only_if)
-I, [2015-07-18T16:05:05.170678 #12519]  INFO -- default-centos: Recipe: java::openjdk
+I, [2015-07-18T15:51:06.833149 #30831]  INFO -- default-centos: -----> Cleaning up any prior instances of <default-centos>
+I, [2015-07-18T15:51:06.833288 #30831]  INFO -- default-centos: -----> Destroying <default-centos>...
+I, [2015-07-18T15:51:06.833949 #30831]  INFO -- default-centos: Finished destroying <default-centos> (0m0.00s).
+I, [2015-07-18T15:51:06.834168 #30831]  INFO -- default-centos: -----> Testing <default-centos>
+I, [2015-07-18T15:51:06.834249 #30831]  INFO -- default-centos: -----> Creating <default-centos>...
+E, [2015-07-18T15:51:06.834374 #30831] ERROR -- default-centos: Create failed on instance <default-centos>.
+E, [2015-07-18T15:51:06.834456 #30831] ERROR -- default-centos: ------Exception-------
+E, [2015-07-18T15:51:06.834483 #30831] ERROR -- default-centos: Class: Errno::ENOENT
+E, [2015-07-18T15:51:06.834502 #30831] ERROR -- default-centos: Message: No such file or directory @ rb_sysopen - /home/jenkins/kitchen/guacamole/Dockerfile.centos
+E, [2015-07-18T15:51:06.834520 #30831] ERROR -- default-centos: ------Backtrace-------
+E, [2015-07-18T15:51:06.834538 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/kitchen-docker-2.1.0/lib/kitchen/driver/docker.rb:194:in `read'
+E, [2015-07-18T15:51:06.834556 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/kitchen-docker-2.1.0/lib/kitchen/driver/docker.rb:194:in `dockerfile'
+E, [2015-07-18T15:51:06.834574 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/kitchen-docker-2.1.0/lib/kitchen/driver/docker.rb:215:in `build_image'
+E, [2015-07-18T15:51:06.834592 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/kitchen-docker-2.1.0/lib/kitchen/driver/docker.rb:94:in `create'
+E, [2015-07-18T15:51:06.834609 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:424:in `public_send'
+E, [2015-07-18T15:51:06.834627 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:424:in `block in perform_action'
+E, [2015-07-18T15:51:06.834645 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:488:in `call'
+E, [2015-07-18T15:51:06.834671 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:488:in `synchronize_or_call'
+E, [2015-07-18T15:51:06.834700 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:453:in `block in action'
+E, [2015-07-18T15:51:06.834719 #30831] ERROR -- default-centos: /home/jenkins/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/benchmark.rb:288:in `measure'
+E, [2015-07-18T15:51:06.834738 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:452:in `action'
+E, [2015-07-18T15:51:06.834756 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:424:in `perform_action'
+E, [2015-07-18T15:51:06.834774 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:352:in `create_action'
+E, [2015-07-18T15:51:06.834792 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:341:in `block in transition_to'
+E, [2015-07-18T15:51:06.834836 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:340:in `each'
+E, [2015-07-18T15:51:06.834856 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:340:in `transition_to'
+E, [2015-07-18T15:51:06.834880 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:160:in `verify'
+E, [2015-07-18T15:51:06.834913 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:189:in `block in test'
+E, [2015-07-18T15:51:06.834941 #30831] ERROR -- default-centos: /home/jenkins/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/benchmark.rb:288:in `measure'
+E, [2015-07-18T15:51:06.834962 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:185:in `test'
+E, [2015-07-18T15:51:06.834987 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/command.rb:176:in `public_send'
+E, [2015-07-18T15:51:06.835019 #30831] ERROR -- default-centos: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/command.rb:176:in `block (2 levels) in run_action'
+E, [2015-07-18T15:51:06.835044 #30831] ERROR -- default-centos: ----------------------
