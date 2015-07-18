@@ -121,7 +121,7 @@ end
 
 %w[ guacamole-auth-jdbc-mysql-0.9.7.jar mysql-connector-java-5.1.35-bin.jar ].each do |file|
   cookbook_file "/var/lib/guacamole/classpath/#{file}" do
-   source file
+   source "#{file}"
     action :create
     not_if "/var/lib/guacamole/classpath/#{file}"
   end
