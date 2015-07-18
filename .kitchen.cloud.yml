@@ -1,0 +1,25 @@
+---
+driver:
+  name: ec2
+  aws_ssh_key_id: sarath
+  ssh_key: /home/jenkins/kitchen/ec2_keys/sarath.pem
+  region: us-west-2
+
+provisioner:
+  name: chef_solo
+
+platforms:
+  - name: ubuntu-14.04
+    driver:
+      image_id: ami-6989a659
+      username: ubuntu
+  - name: amazon
+    driver:
+      image_id: ami-ff527ecf
+      username: ec2-user
+
+suites:
+  - name: default
+    run_list:
+      - recipe[guacamole::default]
+    attributes:

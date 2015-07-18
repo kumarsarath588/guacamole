@@ -127,7 +127,7 @@ end
   end
 end
 
-if node['platform'] == "centos" or node['platform']=="amazon" && node['platform_version'].to_f >= 7.0
+if node['platform'] == "centos" && node['platform_version'].to_f >= 7.0
   package [ 'mariadb-server' , 'mariadb' ] do
     action :install
   end
