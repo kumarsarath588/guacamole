@@ -92,13 +92,14 @@ service "guacd" do
   action [ :enable, :start ]
 end
 
-bash 'guacamole_dir' do
-  user 'root'
-  cwd '/tmp'
-  code <<-EOH
-  mkdir -p /var/lib/guacamole/classpath
-  mkdir -p /root/.guacamole
-  EOH
+%w[ /var/lib/guacamole/classpath /root/.guacamole ].each do |dir|
+  directory "#{dir}" do
+    owner 'jenkins'
+    group 'jenkins'
+    mode '0755'
+    recursive :true
+    action :create
+  end
 end
 
 bash 'guacamole_war' do
@@ -122,8 +123,7 @@ end
 %w[ guacamole-auth-jdbc-mysql-0.9.7.jar mysql-connector-java-5.1.35-bin.jar ].each do |file|
   cookbook_file "/var/lib/guacamole/classpath/#{file}" do
    source "#{file}"
-    action :create
-    not_if "/var/lib/guacamole/classpath/#{file}"
+    action :create_if_missing
   end
 end
 
