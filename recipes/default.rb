@@ -77,6 +77,12 @@ magic_shell_environment 'LD_LIBRARY_PATH' do
   only_if { node['platform']=="ubuntu" }
 end
 
+bash 'guacamole_server' do
+  code <<-EOH
+  source /etc/profile.d/LD_LIBRARY_PATH.sh
+  EOH
+  only_if { node['platform']=="ubuntu" }
+end
 
 bash 'guacamole_server' do
   user 'root'
