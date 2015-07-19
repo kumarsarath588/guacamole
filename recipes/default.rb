@@ -29,7 +29,7 @@ package ['cairo-devel', 'libpng-devel', 'uuid-devel', 'freerdp-devel', 'pango-de
     only_if { node['platform']=="centos" or node['platform']=="amazon" }
 end
 
-package ['libcairo2-dev', 'libpng12-dev', 'libossp-uuid-dev', 'libfreerdp-dev', 'libpango1.0-dev', 'libtelnet-dev', 'libssh2-1-dev', 'libvncserver-dev', 'libpulse-dev', 'libssl-dev', 'libvorbis-dev', 'gcc', 'unzip', 'wget', 'gcc-c++' ] do
+package ['libcairo2-dev', 'libpng12-dev', 'libossp-uuid-dev', 'libfreerdp-dev', 'libpango1.0-dev', 'libtelnet-dev', 'libssh2-1-dev', 'libvncserver-dev', 'libpulse-dev', 'libssl-dev', 'libvorbis-dev', 'gcc', 'unzip', 'wget', 'g++' ] do
     action :install
     only_if { node['platform']=="ubuntu" }
 end
