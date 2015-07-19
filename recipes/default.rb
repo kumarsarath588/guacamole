@@ -72,6 +72,12 @@ end
 
 include_recipe "guacamole::tomcat"
 
+magic_shell_environment 'LD_LIBRARY_PATH' do
+  value "/usr/local/lib"
+  only_if { node['platform']=="ubuntu" }
+end
+
+
 bash 'guacamole_server' do
   user 'root'
   cwd '/tmp'

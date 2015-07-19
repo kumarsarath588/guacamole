@@ -8,3 +8,4 @@ version          '0.2.0'
 
 depends 'java', '= 1.31.0'
 depends 'apt', '= 2.7.0'
+depends 'magic_shell', '= 1.0.0'
