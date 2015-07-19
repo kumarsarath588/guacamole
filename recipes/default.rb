@@ -17,14 +17,10 @@ apt_repository 'libssh2' do
    distribution 'trusty'
    only_if { node['platform']=="ubuntu" }
 end
-bash "apt-get update" do
-   code <<-EOH
-   sudo apt-get update
-   EOH
-   only_if { node['platform']=="ubuntu" }
-end
 
-include_recipe "java"
+if node['platform']=="ubuntu" do
+  include apt
+end
 
 package ['cairo-devel', 'libpng-devel', 'uuid-devel', 'freerdp-devel', 'pango-devel', 'libssh2-devel', 'libvncserver-devel', 'pulseaudio-libs-devel', 'openssl-devel', 'libvorbis-devel', 'wget', 'unzip', 'gcc', 'gcc-c++', 'libpng-devel', 'cairo-devel', 'uuid-devel' ] do
     action :install
