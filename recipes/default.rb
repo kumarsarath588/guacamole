@@ -18,7 +18,7 @@ apt_repository 'libssh2' do
    only_if { node['platform']=="ubuntu" }
 end
 
-if node['platform']=="ubuntu" do
+if node['platform']=="ubuntu" 
   include_recipe "apt"
 end
 
