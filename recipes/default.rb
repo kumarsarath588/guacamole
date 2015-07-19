@@ -17,11 +17,9 @@ apt_repository 'libssh2' do
    distribution 'trusty'
    only_if { node['platform']=="ubuntu" }
 end
-bash "apt-get update" do
-   code <<-EOH
-   sudo apt-get update
-   EOH
-   only_if { node['platform']=="ubuntu" }
+
+if node['platform']=="ubuntu" do
+  include_recipe "apt"
 end
 
 include_recipe "java"

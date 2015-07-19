@@ -1,0 +1,147 @@
+I, [2015-07-19T10:48:56.942606 #27497]  INFO -- default-ubuntu: -----> Cleaning up any prior instances of <default-ubuntu>
+I, [2015-07-19T10:48:56.942737 #27497]  INFO -- default-ubuntu: -----> Destroying <default-ubuntu>...
+I, [2015-07-19T10:48:56.943373 #27497]  INFO -- default-ubuntu: Finished destroying <default-ubuntu> (0m0.00s).
+I, [2015-07-19T10:48:56.943554 #27497]  INFO -- default-ubuntu: -----> Testing <default-ubuntu>
+I, [2015-07-19T10:48:56.943652 #27497]  INFO -- default-ubuntu: -----> Creating <default-ubuntu>...
+I, [2015-07-19T10:48:56.958020 #27497]  INFO -- default-ubuntu: Sending build context to Docker daemon  2.56 kB
+I, [2015-07-19T10:48:56.958121 #27497]  INFO -- default-ubuntu: Sending build context to Docker daemon 
+I, [2015-07-19T10:48:56.976055 #27497]  INFO -- default-ubuntu: Step 0 : FROM ubuntu
+I, [2015-07-19T10:48:56.986633 #27497]  INFO -- default-ubuntu:  ---> d2a0ecffe6fa
+I, [2015-07-19T10:48:56.986712 #27497]  INFO -- default-ubuntu: Step 1 : RUN dpkg-divert --local --rename --add /sbin/initctl
+I, [2015-07-19T10:48:57.592644 #27497]  INFO -- default-ubuntu:  ---> Using cache
+I, [2015-07-19T10:48:57.592740 #27497]  INFO -- default-ubuntu:  ---> 93e2e34da264
+I, [2015-07-19T10:48:57.592766 #27497]  INFO -- default-ubuntu: Step 2 : RUN ln -sf /bin/true /sbin/initctl
+I, [2015-07-19T10:48:57.606626 #27497]  INFO -- default-ubuntu:  ---> Using cache
+I, [2015-07-19T10:48:57.606697 #27497]  INFO -- default-ubuntu:  ---> addae4510f3d
+I, [2015-07-19T10:48:57.606723 #27497]  INFO -- default-ubuntu: Step 3 : ENV DEBIAN_FRONTEND noninteractive
+I, [2015-07-19T10:48:57.622654 #27497]  INFO -- default-ubuntu:  ---> Using cache
+I, [2015-07-19T10:48:57.622731 #27497]  INFO -- default-ubuntu:  ---> 998076711f04
+I, [2015-07-19T10:48:57.622757 #27497]  INFO -- default-ubuntu: Step 4 : RUN apt-get update
+I, [2015-07-19T10:48:57.643649 #27497]  INFO -- default-ubuntu:  ---> Using cache
+I, [2015-07-19T10:48:57.643737 #27497]  INFO -- default-ubuntu:  ---> 86127b472adc
+I, [2015-07-19T10:48:57.643762 #27497]  INFO -- default-ubuntu: Step 5 : RUN apt-get install -y sudo openssh-server curl lsb-release
+I, [2015-07-19T10:48:57.657634 #27497]  INFO -- default-ubuntu:  ---> Using cache
+I, [2015-07-19T10:48:57.657706 #27497]  INFO -- default-ubuntu:  ---> 722f936c5402
+I, [2015-07-19T10:48:57.657731 #27497]  INFO -- default-ubuntu: Step 6 : RUN if ! getent passwd kitchen; then useradd -d /home/kitchen -m -s /bin/bash kitchen; fi
+I, [2015-07-19T10:48:57.676644 #27497]  INFO -- default-ubuntu:  ---> Using cache
+I, [2015-07-19T10:48:57.676727 #27497]  INFO -- default-ubuntu:  ---> a32f198a2a99
+I, [2015-07-19T10:48:57.676753 #27497]  INFO -- default-ubuntu: Step 7 : RUN echo kitchen:kitchen | chpasswd
+I, [2015-07-19T10:48:57.694643 #27497]  INFO -- default-ubuntu:  ---> Using cache
+I, [2015-07-19T10:48:57.694731 #27497]  INFO -- default-ubuntu:  ---> 535202715c15
+I, [2015-07-19T10:48:57.694771 #27497]  INFO -- default-ubuntu: Step 8 : RUN echo 'kitchen ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+I, [2015-07-19T10:48:57.711674 #27497]  INFO -- default-ubuntu:  ---> Using cache
+I, [2015-07-19T10:48:57.711770 #27497]  INFO -- default-ubuntu:  ---> ee5973eb9658
+I, [2015-07-19T10:48:57.711819 #27497]  INFO -- default-ubuntu: Step 9 : RUN mkdir -p /etc/sudoers.d
+I, [2015-07-19T10:48:57.726665 #27497]  INFO -- default-ubuntu:  ---> Using cache
+I, [2015-07-19T10:48:57.726759 #27497]  INFO -- default-ubuntu:  ---> 09af5715e7fc
+I, [2015-07-19T10:48:57.726801 #27497]  INFO -- default-ubuntu: Step 10 : RUN echo 'kitchen ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers.d/kitchen
+I, [2015-07-19T10:48:57.741643 #27497]  INFO -- default-ubuntu:  ---> Using cache
+I, [2015-07-19T10:48:57.741723 #27497]  INFO -- default-ubuntu:  ---> 913ed7f865ec
+I, [2015-07-19T10:48:57.741749 #27497]  INFO -- default-ubuntu: Step 11 : RUN chmod 0440 /etc/sudoers.d/kitchen
+I, [2015-07-19T10:48:57.759990 #27497]  INFO -- default-ubuntu:  ---> Using cache
+I, [2015-07-19T10:48:57.760076 #27497]  INFO -- default-ubuntu:  ---> d236021a0e95
+I, [2015-07-19T10:48:57.760150 #27497]  INFO -- default-ubuntu: Successfully built d236021a0e95
+I, [2015-07-19T10:48:58.021691 #27497]  INFO -- default-ubuntu: 6ef4fdbac126ec1c5f885b3c0c5d50321a38ec6c98b36faadd33b7cecc2e7f1d
+I, [2015-07-19T10:48:58.273277 #27497]  INFO -- default-ubuntu: 0.0.0.0:32783
+I, [2015-07-19T10:48:58.287775 #27497]  INFO -- default-ubuntu: Waiting for SSH service on localhost:32783, retrying in 3 seconds
+I, [2015-07-19T10:49:01.414034 #27497]  INFO -- default-ubuntu: [SSH] Established
+I, [2015-07-19T10:49:01.415757 #27497]  INFO -- default-ubuntu: Finished creating <default-ubuntu> (0m4.47s).
+I, [2015-07-19T10:49:01.415854 #27497]  INFO -- default-ubuntu: -----> Converging <default-ubuntu>...
+W, [2015-07-19T10:49:01.416400 #27497]  WARN -- default-ubuntu: Running legacy converge for 'Docker' Driver
+I, [2015-07-19T10:49:01.416875 #27497]  INFO -- default-ubuntu: Preparing files for transfer
+I, [2015-07-19T10:49:01.416949 #27497]  INFO -- default-ubuntu: Preparing dna.json
+I, [2015-07-19T10:49:01.417443 #27497]  INFO -- default-ubuntu: Resolving cookbook dependencies with Berkshelf 3.3.0...
+I, [2015-07-19T10:49:02.386287 #27497]  INFO -- default-ubuntu: Removing non-cookbook files before transfer
+I, [2015-07-19T10:49:02.389715 #27497]  INFO -- default-ubuntu: Preparing solo.rb
+I, [2015-07-19T10:49:02.405622 #27497]  INFO -- default-ubuntu: -----> Installing Chef Omnibus (install only if missing)
+I, [2015-07-19T10:49:02.406487 #27497]  INFO -- default-ubuntu: Downloading https://www.chef.io/chef/install.sh to file /tmp/install.sh
+I, [2015-07-19T10:49:02.406636 #27497]  INFO -- default-ubuntu: Trying wget...
+I, [2015-07-19T10:49:04.185952 #27497]  INFO -- default-ubuntu: Download complete.
+I, [2015-07-19T10:49:04.261392 #27497]  INFO -- default-ubuntu: Downloading Chef  for ubuntu...
+I, [2015-07-19T10:49:04.261525 #27497]  INFO -- default-ubuntu: downloading https://www.chef.io/chef/metadata?v=&prerelease=false&nightlies=false&p=ubuntu&pv=14.04&m=x86_64
+I, [2015-07-19T10:49:04.261597 #27497]  INFO -- default-ubuntu:   to file /tmp/install.sh.14/metadata.txt
+I, [2015-07-19T10:49:04.261624 #27497]  INFO -- default-ubuntu: trying wget...
+I, [2015-07-19T10:49:05.790102 #27497]  INFO -- default-ubuntu: url	https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/10.04/x86_64/chef_12.4.1-1_amd64.deb
+I, [2015-07-19T10:49:05.790193 #27497]  INFO -- default-ubuntu: md5	6229586196a433b0ddf8f72cd4e85533
+I, [2015-07-19T10:49:05.790218 #27497]  INFO -- default-ubuntu: sha256	bb2bdaa0c551fff21ccdf37dab75fc71374b521c419f1af51d1eab3ea2c791ba
+I, [2015-07-19T10:49:05.791486 #27497]  INFO -- default-ubuntu: downloaded metadata file looks valid...
+I, [2015-07-19T10:49:05.841124 #27497]  INFO -- default-ubuntu: downloading https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/10.04/x86_64/chef_12.4.1-1_amd64.deb
+I, [2015-07-19T10:49:05.841213 #27497]  INFO -- default-ubuntu:   to file /tmp/install.sh.14/chef_12.4.1-1_amd64.deb
+I, [2015-07-19T10:49:05.841250 #27497]  INFO -- default-ubuntu: trying wget...
+I, [2015-07-19T10:52:15.712050 #27497]  INFO -- default-ubuntu: Comparing checksum with sha256sum...
+I, [2015-07-19T10:52:15.974195 #27497]  INFO -- default-ubuntu: 
+I, [2015-07-19T10:52:15.974297 #27497]  INFO -- default-ubuntu: WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
+I, [2015-07-19T10:52:15.974325 #27497]  INFO -- default-ubuntu: 
+I, [2015-07-19T10:52:15.974352 #27497]  INFO -- default-ubuntu: You are installing an omnibus package without a version pin.  If you are installing
+I, [2015-07-19T10:52:15.974381 #27497]  INFO -- default-ubuntu: on production servers via an automated process this is DANGEROUS and you will
+I, [2015-07-19T10:52:15.974424 #27497]  INFO -- default-ubuntu: be upgraded without warning on new releases, even to new major releases.
+I, [2015-07-19T10:52:15.974558 #27497]  INFO -- default-ubuntu: Letting the version float is only appropriate in desktop, test, development or
+I, [2015-07-19T10:52:15.974590 #27497]  INFO -- default-ubuntu: CI/CD environments.
+I, [2015-07-19T10:52:15.974611 #27497]  INFO -- default-ubuntu: 
+I, [2015-07-19T10:52:15.974642 #27497]  INFO -- default-ubuntu: WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING WARNING
+I, [2015-07-19T10:52:15.974690 #27497]  INFO -- default-ubuntu: 
+I, [2015-07-19T10:52:15.974711 #27497]  INFO -- default-ubuntu: Installing Chef 
+I, [2015-07-19T10:52:15.974737 #27497]  INFO -- default-ubuntu: installing with dpkg...
+I, [2015-07-19T10:52:16.087794 #27497]  INFO -- default-ubuntu: Selecting previously unselected package chef.
+I, [2015-07-19T10:52:16.279647 #27497]  INFO -- default-ubuntu: (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 16007 files and directories currently installed.)
+I, [2015-07-19T10:52:16.279734 #27497]  INFO -- default-ubuntu: Preparing to unpack .../chef_12.4.1-1_amd64.deb ...
+I, [2015-07-19T10:52:16.285690 #27497]  INFO -- default-ubuntu: Unpacking chef (12.4.1-1) ...
+I, [2015-07-19T10:52:19.737854 #27497]  INFO -- default-ubuntu: Setting up chef (12.4.1-1) ...
+I, [2015-07-19T10:52:19.855224 #27497]  INFO -- default-ubuntu: Thank you for installing Chef!
+I, [2015-07-19T10:52:20.004235 #27497]  INFO -- default-ubuntu: Transferring files to <default-ubuntu>
+I, [2015-07-19T10:52:23.522824 #27497]  INFO -- default-ubuntu: Starting Chef Client, version 12.4.1
+I, [2015-07-19T10:52:24.512733 #27497]  INFO -- default-ubuntu: Compiling Cookbooks...
+I, [2015-07-19T10:52:24.516689 #27497]  INFO -- default-ubuntu: 
+I, [2015-07-19T10:52:24.516766 #27497]  INFO -- default-ubuntu: ================================================================================
+I, [2015-07-19T10:52:24.516792 #27497]  INFO -- default-ubuntu: Recipe Compile Error in /tmp/kitchen/cookbooks/guacamole/recipes/default.rb
+I, [2015-07-19T10:52:24.516814 #27497]  INFO -- default-ubuntu: ================================================================================
+I, [2015-07-19T10:52:24.516835 #27497]  INFO -- default-ubuntu: 
+I, [2015-07-19T10:52:24.516864 #27497]  INFO -- default-ubuntu: SyntaxError
+I, [2015-07-19T10:52:24.516892 #27497]  INFO -- default-ubuntu: -----------
+I, [2015-07-19T10:52:24.516913 #27497]  INFO -- default-ubuntu: /tmp/kitchen/cookbooks/guacamole/recipes/default.rb:21: syntax error, unexpected keyword_do, expecting keyword_then or ';' or '\n'
+I, [2015-07-19T10:52:24.516933 #27497]  INFO -- default-ubuntu: /tmp/kitchen/cookbooks/guacamole/recipes/default.rb:23: syntax error, unexpected keyword_end, expecting end-of-input
+I, [2015-07-19T10:52:24.516961 #27497]  INFO -- default-ubuntu: 
+I, [2015-07-19T10:52:24.516992 #27497]  INFO -- default-ubuntu: 
+I, [2015-07-19T10:52:24.517013 #27497]  INFO -- default-ubuntu: Running handlers:
+I, [2015-07-19T10:52:24.517033 #27497]  INFO -- default-ubuntu: [2015-07-19T05:22:24+00:00] ERROR: Running exception handlers
+I, [2015-07-19T10:52:24.517053 #27497]  INFO -- default-ubuntu: Running handlers complete
+I, [2015-07-19T10:52:24.517073 #27497]  INFO -- default-ubuntu: [2015-07-19T05:22:24+00:00] ERROR: Exception handlers complete
+I, [2015-07-19T10:52:24.517093 #27497]  INFO -- default-ubuntu: Chef Client failed. 0 resources updated in 0.9941602 seconds
+I, [2015-07-19T10:52:24.548725 #27497]  INFO -- default-ubuntu: [2015-07-19T05:22:24+00:00] FATAL: Stacktrace dumped to /tmp/kitchen/cache/chef-stacktrace.out
+I, [2015-07-19T10:52:24.548817 #27497]  INFO -- default-ubuntu: [2015-07-19T05:22:24+00:00] ERROR: /tmp/kitchen/cookbooks/guacamole/recipes/default.rb:21: syntax error, unexpected keyword_do, expecting keyword_then or ';' or '\n'
+I, [2015-07-19T10:52:24.548843 #27497]  INFO -- default-ubuntu: /tmp/kitchen/cookbooks/guacamole/recipes/default.rb:23: syntax error, unexpected keyword_end, expecting end-of-input
+I, [2015-07-19T10:52:24.595717 #27497]  INFO -- default-ubuntu: [2015-07-19T05:22:24+00:00] FATAL: Chef::Exceptions::ChildConvergeError: Chef run process exited unsuccessfully (exit code 1)
+E, [2015-07-19T10:52:24.614040 #27497] ERROR -- default-ubuntu: Converge failed on instance <default-ubuntu>.
+E, [2015-07-19T10:52:24.614159 #27497] ERROR -- default-ubuntu: ------Exception-------
+E, [2015-07-19T10:52:24.614185 #27497] ERROR -- default-ubuntu: Class: Kitchen::ActionFailed
+E, [2015-07-19T10:52:24.614203 #27497] ERROR -- default-ubuntu: Message: SSH exited (1) for command: [sh -c '
+
+sudo -E /opt/chef/bin/chef-solo --config /tmp/kitchen/solo.rb --log_level auto --force-formatter --no-color --json-attributes /tmp/kitchen/dna.json
+']
+E, [2015-07-19T10:52:24.614221 #27497] ERROR -- default-ubuntu: ---Nested Exception---
+E, [2015-07-19T10:52:24.614238 #27497] ERROR -- default-ubuntu: Class: Kitchen::Transport::SshFailed
+E, [2015-07-19T10:52:24.614255 #27497] ERROR -- default-ubuntu: Message: SSH exited (1) for command: [sh -c '
+
+sudo -E /opt/chef/bin/chef-solo --config /tmp/kitchen/solo.rb --log_level auto --force-formatter --no-color --json-attributes /tmp/kitchen/dna.json
+']
+E, [2015-07-19T10:52:24.614273 #27497] ERROR -- default-ubuntu: ------Backtrace-------
+E, [2015-07-19T10:52:24.614290 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/driver/ssh_base.rb:85:in `rescue in converge'
+E, [2015-07-19T10:52:24.614307 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/driver/ssh_base.rb:88:in `converge'
+E, [2015-07-19T10:52:24.614324 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:540:in `legacy_ssh_base_converge'
+E, [2015-07-19T10:52:24.614342 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:364:in `block in converge_action'
+E, [2015-07-19T10:52:24.614362 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:488:in `call'
+E, [2015-07-19T10:52:24.614380 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:488:in `synchronize_or_call'
+E, [2015-07-19T10:52:24.614397 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:453:in `block in action'
+E, [2015-07-19T10:52:24.614415 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/benchmark.rb:288:in `measure'
+E, [2015-07-19T10:52:24.614433 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:452:in `action'
+E, [2015-07-19T10:52:24.614450 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:362:in `converge_action'
+E, [2015-07-19T10:52:24.614488 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:341:in `block in transition_to'
+E, [2015-07-19T10:52:24.614509 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:340:in `each'
+E, [2015-07-19T10:52:24.614527 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:340:in `transition_to'
+E, [2015-07-19T10:52:24.614545 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:160:in `verify'
+E, [2015-07-19T10:52:24.614562 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:189:in `block in test'
+E, [2015-07-19T10:52:24.614586 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/benchmark.rb:288:in `measure'
+E, [2015-07-19T10:52:24.614617 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/instance.rb:185:in `test'
+E, [2015-07-19T10:52:24.614646 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/command.rb:176:in `public_send'
+E, [2015-07-19T10:52:24.614667 #27497] ERROR -- default-ubuntu: /home/jenkins/.rvm/gems/ruby-2.2.1/gems/test-kitchen-1.4.1/lib/kitchen/command.rb:176:in `block (2 levels) in run_action'
+E, [2015-07-19T10:52:24.614685 #27497] ERROR -- default-ubuntu: ----------------------
