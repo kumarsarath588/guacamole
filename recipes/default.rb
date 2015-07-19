@@ -77,11 +77,11 @@ magic_shell_environment 'LD_LIBRARY_PATH' do
   only_if { node['platform']=="ubuntu" }
 end
 
-
 bash 'guacamole_server' do
   user 'root'
   cwd '/tmp'
   code <<-EOH
+  if [ -f /etc/profile.d/jdk.sh ] ; then source /etc/profile.d/LD_LIBRARY_PATH.sh ; fi
   wget http://sourceforge.net/projects/guacamole/files/current/source/guacamole-server-0.9.7.tar.gz/download -O guacamole-server-0.9.7.tar.gz
   tar -zxf guacamole-server-0.9.7.tar.gz
   cd guacamole-server-0.9.7
