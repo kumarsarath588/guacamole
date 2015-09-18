@@ -16,7 +16,7 @@ bash 'tomcat_install' do
   cwd '/tmp'
   code <<-EOH
   unzip #{Chef::Config[:file_cache_path]}/#{base_package_filename}
-  mv /tmp/apache-tomcat-8.0.24 /opt/tomcat
+  mv /tmp/apache-tomcat-8.0.26 /opt/tomcat
   EOH
   not_if {::File.directory?("/opt/tomcat")}
 end

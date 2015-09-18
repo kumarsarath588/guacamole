@@ -1,0 +1,623 @@
+I, [2015-09-18T22:56:34.709517 #19463]  INFO -- default-centos: -----> Cleaning up any prior instances of <default-centos>
+I, [2015-09-18T22:56:34.710010 #19463]  INFO -- default-centos: -----> Destroying <default-centos>...
+I, [2015-09-18T22:56:34.744894 #19463]  INFO -- default-centos: UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+I, [2015-09-18T22:56:34.745016 #19463]  INFO -- default-centos: root                19139               16094               0                   22:52               ?                   00:00:00            /usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no -o PasswordAuthentication=yes -o UsePrivilegeSeparation=no -o PidFile=/tmp/sshd.pid
+I, [2015-09-18T22:56:35.031184 #19463]  INFO -- default-centos: 134d444666a2facb67f695479f098ef996f87bb38f580f15150324a19a321f2e
+I, [2015-09-18T22:56:41.169849 #19463]  INFO -- default-centos: 134d444666a2facb67f695479f098ef996f87bb38f580f15150324a19a321f2e
+I, [2015-09-18T22:56:41.181871 #19463]  INFO -- default-centos: Finished destroying <default-centos> (0m6.47s).
+I, [2015-09-18T22:56:41.182256 #19463]  INFO -- default-centos: -----> Testing <default-centos>
+I, [2015-09-18T22:56:41.182350 #19463]  INFO -- default-centos: -----> Creating <default-centos>...
+I, [2015-09-18T22:56:41.199364 #19463]  INFO -- default-centos: Sending build context to Docker daemon 2.048 kBSending build context to Docker daemon 2.048 kB
+I, [2015-09-18T22:56:41.220844 #19463]  INFO -- default-centos: Step 0 : FROM jdeathe/centos-ssh
+I, [2015-09-18T22:56:41.221066 #19463]  INFO -- default-centos:  ---> eebfc872609c
+I, [2015-09-18T22:56:41.221100 #19463]  INFO -- default-centos: Step 1 : RUN yum clean all
+I, [2015-09-18T22:56:41.221127 #19463]  INFO -- default-centos:  ---> Using cache
+I, [2015-09-18T22:56:41.221156 #19463]  INFO -- default-centos:  ---> 13104295e02a
+I, [2015-09-18T22:56:41.221180 #19463]  INFO -- default-centos: Step 2 : RUN yum install -y sudo openssh-server openssh-clients which curl htop crontabs initscripts net-tools passwd tar deltarpm
+I, [2015-09-18T22:56:41.224809 #19463]  INFO -- default-centos:  ---> Using cache
+I, [2015-09-18T22:56:41.224892 #19463]  INFO -- default-centos:  ---> a1fe7fc44e9c
+I, [2015-09-18T22:56:41.224916 #19463]  INFO -- default-centos: Step 3 : RUN ssh-keygen -t rsa -f /etc/ssh/ssh_host_rsa_key
+I, [2015-09-18T22:56:41.228144 #19463]  INFO -- default-centos:  ---> Using cache
+I, [2015-09-18T22:56:41.228244 #19463]  INFO -- default-centos:  ---> c9db9b27553a
+I, [2015-09-18T22:56:41.228288 #19463]  INFO -- default-centos: Step 4 : RUN ssh-keygen -t dsa -f /etc/ssh/ssh_host_dsa_key
+I, [2015-09-18T22:56:41.232140 #19463]  INFO -- default-centos:  ---> Using cache
+I, [2015-09-18T22:56:41.232242 #19463]  INFO -- default-centos:  ---> b849432d6868
+I, [2015-09-18T22:56:41.232286 #19463]  INFO -- default-centos: Step 5 : RUN mkdir -p /var/run/sshd
+I, [2015-09-18T22:56:41.235632 #19463]  INFO -- default-centos:  ---> Using cache
+I, [2015-09-18T22:56:41.235729 #19463]  INFO -- default-centos:  ---> f42b110a2892
+I, [2015-09-18T22:56:41.235817 #19463]  INFO -- default-centos: Step 6 : RUN useradd -d /home/kitchen -m -s /bin/bash kitchen
+I, [2015-09-18T22:56:41.239086 #19463]  INFO -- default-centos:  ---> Using cache
+I, [2015-09-18T22:56:41.239160 #19463]  INFO -- default-centos:  ---> 9903d6687aac
+I, [2015-09-18T22:56:41.239185 #19463]  INFO -- default-centos: Step 7 : RUN echo kitchen:kitchen | chpasswd
+I, [2015-09-18T22:56:41.243493 #19463]  INFO -- default-centos:  ---> Using cache
+I, [2015-09-18T22:56:41.243592 #19463]  INFO -- default-centos:  ---> 11009dcff241
+I, [2015-09-18T22:56:41.243618 #19463]  INFO -- default-centos: Step 8 : RUN echo 'kitchen ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+I, [2015-09-18T22:56:41.247747 #19463]  INFO -- default-centos:  ---> Using cache
+I, [2015-09-18T22:56:41.247835 #19463]  INFO -- default-centos:  ---> b5adc8e559f2
+I, [2015-09-18T22:56:41.247879 #19463]  INFO -- default-centos: Step 9 : RUN curl -L http://www.opscode.com/chef/install.sh | bash
+I, [2015-09-18T22:56:41.252098 #19463]  INFO -- default-centos:  ---> Using cache
+I, [2015-09-18T22:56:41.252187 #19463]  INFO -- default-centos:  ---> affaac2135d7
+I, [2015-09-18T22:56:41.252211 #19463]  INFO -- default-centos: Successfully built affaac2135d7
+I, [2015-09-18T22:56:41.458562 #19463]  INFO -- default-centos: 1305b000fb409d23f95b5167ac75f76fab73e4ca4121116eb6f7860aa8ac1c1c
+I, [2015-09-18T22:56:41.707211 #19463]  INFO -- default-centos: 0.0.0.0:32770
+I, [2015-09-18T22:56:41.722153 #19463]  INFO -- default-centos: Waiting for SSH service on localhost:32770, retrying in 3 seconds
+I, [2015-09-18T22:56:44.837286 #19463]  INFO -- default-centos: [SSH] Established
+I, [2015-09-18T22:56:44.838646 #19463]  INFO -- default-centos: Finished creating <default-centos> (0m3.66s).
+I, [2015-09-18T22:56:44.838749 #19463]  INFO -- default-centos: -----> Converging <default-centos>...
+W, [2015-09-18T22:56:44.839195 #19463]  WARN -- default-centos: Running legacy converge for 'Docker' Driver
+I, [2015-09-18T22:56:44.839418 #19463]  INFO -- default-centos: Preparing files for transfer
+I, [2015-09-18T22:56:44.839492 #19463]  INFO -- default-centos: Preparing dna.json
+I, [2015-09-18T22:56:44.839839 #19463]  INFO -- default-centos: Resolving cookbook dependencies with Berkshelf 3.3.0...
+I, [2015-09-18T22:56:45.119735 #19463]  INFO -- default-centos: Removing non-cookbook files before transfer
+I, [2015-09-18T22:56:45.123035 #19463]  INFO -- default-centos: Preparing solo.rb
+I, [2015-09-18T22:56:45.134166 #19463]  INFO -- default-centos: -----> Chef Omnibus installation detected (install only if missing)
+I, [2015-09-18T22:56:45.168984 #19463]  INFO -- default-centos: Transferring files to <default-centos>
+I, [2015-09-18T22:56:48.527140 #19463]  INFO -- default-centos: [2015-09-18T17:26:48+00:00] WARN: Please install an English UTF-8 locale for Chef to use, falling back to C locale and disabling UTF-8 support.
+I, [2015-09-18T22:56:49.743586 #19463]  INFO -- default-centos: Starting Chef Client, version 12.4.1
+I, [2015-09-18T22:56:50.575339 #19463]  INFO -- default-centos: Compiling Cookbooks...
+I, [2015-09-18T22:56:50.609155 #19463]  INFO -- default-centos: [2015-09-18T17:26:50+00:00] WARN: Cloning resource attributes for bash[libtelnet] from prior resource (CHEF-3694)
+I, [2015-09-18T22:56:50.609269 #19463]  INFO -- default-centos: [2015-09-18T17:26:50+00:00] WARN: Previous bash[libtelnet]: /tmp/kitchen/cookbooks/guacamole/recipes/default.rb:54:in `from_file'
+I, [2015-09-18T22:56:50.609301 #19463]  INFO -- default-centos: [2015-09-18T17:26:50+00:00] WARN: Current  bash[libtelnet]: /tmp/kitchen/cookbooks/guacamole/recipes/default.rb:63:in `from_file'
+I, [2015-09-18T22:56:50.616018 #19463]  INFO -- default-centos: [2015-09-18T17:26:50+00:00] WARN: Cloning resource attributes for service[tomcat] from prior resource (CHEF-3694)
+I, [2015-09-18T22:56:50.616114 #19463]  INFO -- default-centos: [2015-09-18T17:26:50+00:00] WARN: Previous service[tomcat]: /tmp/kitchen/cookbooks/guacamole/recipes/default.rb:119:in `from_file'
+I, [2015-09-18T22:56:50.616152 #19463]  INFO -- default-centos: [2015-09-18T17:26:50+00:00] WARN: Current  service[tomcat]: /tmp/kitchen/cookbooks/guacamole/recipes/default.rb:180:in `from_file'
+I, [2015-09-18T22:56:50.616176 #19463]  INFO -- default-centos: Converging 36 resources
+I, [2015-09-18T22:56:50.616197 #19463]  INFO -- default-centos: Recipe: guacamole::default
+I, [2015-09-18T22:56:50.616217 #19463]  INFO -- default-centos:   * apt_repository[libssh2] action add (skipped due to only_if)
+I, [2015-09-18T22:56:50.616238 #19463]  INFO -- default-centos: Recipe: java::openjdk
+I, [2015-09-18T23:00:02.683833 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:02.683963 #19463]  INFO -- default-centos:     - install version 1.7.0.85-2.6.1.3.el6_7 of package java-1.7.0-openjdk
+I, [2015-09-18T23:00:46.197237 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:46.197343 #19463]  INFO -- default-centos:     - install version 1.7.0.85-2.6.1.3.el6_7 of package java-1.7.0-openjdk-devel
+I, [2015-09-18T23:00:46.244596 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:46.310072 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:46.374347 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:46.444024 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:46.508067 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:46.572331 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:46.638022 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:46.705851 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:46.771012 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:46.835470 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:46.899087 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:46.962233 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:47.027518 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:47.081187 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:47.142488 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:47.209160 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:47.268029 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:47.331057 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:47.392985 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:47.458836 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:47.512134 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:47.575204 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:47.637543 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:47.700424 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:47.766667 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:47.828049 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:47.891967 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:47.954824 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:48.017815 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:48.083835 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:48.151033 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:48.216981 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:48.284019 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:48.351941 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:48.417958 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:48.481490 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:48.545802 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:48.612399 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:48.677875 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:48.701298 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:48.701382 #19463]  INFO -- default-centos: Recipe: java::set_java_home
+I, [2015-09-18T23:00:48.701409 #19463]  INFO -- default-centos:   * ruby_block[set-env-java-home] action run
+I, [2015-09-18T23:00:48.701432 #19463]  INFO -- default-centos:     - execute the ruby block set-env-java-home
+I, [2015-09-18T23:00:48.701454 #19463]  INFO -- default-centos:   * directory[/etc/profile.d] action create (up to date)
+I, [2015-09-18T23:00:48.701477 #19463]  INFO -- default-centos:   * file[/etc/profile.d/jdk.sh] action create
+I, [2015-09-18T23:00:48.702095 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:48.702142 #19463]  INFO -- default-centos:     - update content in file /etc/profile.d/jdk.sh from none to b45e89
+I, [2015-09-18T23:00:48.702168 #19463]  INFO -- default-centos:     --- /etc/profile.d/jdk.sh	2015-09-18 17:30:48.698419771 +0000
+I, [2015-09-18T23:00:48.702192 #19463]  INFO -- default-centos:     +++ /etc/profile.d/.jdk.sh20150918-54-19oi1m0	2015-09-18 17:30:48.698419771 +0000
+I, [2015-09-18T23:00:48.702214 #19463]  INFO -- default-centos:     @@ -1 +1,2 @@
+I, [2015-09-18T23:00:48.702235 #19463]  INFO -- default-centos:     +export JAVA_HOME=/usr/lib/jvm/java-1.7.0
+I, [2015-09-18T23:00:48.719137 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:00:48.719248 #19463]  INFO -- default-centos: Recipe: guacamole::default
+I, [2015-09-18T23:06:06.819334 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:06:06.819580 #19463]  INFO -- default-centos:     - install version 1.8.8-6.el6_6 of package cairo-devel
+I, [2015-09-18T23:06:06.819631 #19463]  INFO -- default-centos:     - install version 1.2.49-1.el6_2 of package libpng-devel
+I, [2015-09-18T23:06:06.819659 #19463]  INFO -- default-centos:     - install version 1.6.1-10.el6 of package uuid-devel
+I, [2015-09-18T23:06:06.819680 #19463]  INFO -- default-centos:     - install version 1.0.2-2.el6 of package freerdp-devel
+I, [2015-09-18T23:06:06.819701 #19463]  INFO -- default-centos:     - install version 1.28.1-10.el6 of package pango-devel
+I, [2015-09-18T23:06:06.819722 #19463]  INFO -- default-centos:     - install version 1.4.2-1.el6_6.1 of package libssh2-devel
+I, [2015-09-18T23:06:06.819742 #19463]  INFO -- default-centos:     - install version 0.9.7-7.el6_6.1 of package libvncserver-devel
+I, [2015-09-18T23:06:06.819762 #19463]  INFO -- default-centos:     - install version 0.9.21-21.el6 of package pulseaudio-libs-devel
+I, [2015-09-18T23:06:06.819782 #19463]  INFO -- default-centos:     - install version 1.0.1e-42.el6 of package openssl-devel
+I, [2015-09-18T23:06:06.819805 #19463]  INFO -- default-centos:     - install version 1.2.3-4.el6_2.1 of package libvorbis-devel
+I, [2015-09-18T23:06:06.819827 #19463]  INFO -- default-centos:     - install version 1.12-5.el6_6.1 of package wget
+I, [2015-09-18T23:06:06.819846 #19463]  INFO -- default-centos:     - install version 6.0-2.el6_6 of package unzip
+I, [2015-09-18T23:06:06.819866 #19463]  INFO -- default-centos:     - install version 4.4.7-16.el6 of package gcc
+I, [2015-09-18T23:06:06.819885 #19463]  INFO -- default-centos:     - install version 4.4.7-16.el6 of package gcc-c++
+I, [2015-09-18T23:06:06.819936 #19463]  INFO -- default-centos:     - install version 1.2.49-1.el6_2 of package libpng-devel
+I, [2015-09-18T23:06:06.819959 #19463]  INFO -- default-centos:     - install version 1.8.8-6.el6_6 of package cairo-devel
+I, [2015-09-18T23:06:06.819979 #19463]  INFO -- default-centos:     - install version 1.6.1-10.el6 of package uuid-devel
+I, [2015-09-18T23:06:06.819999 #19463]  INFO -- default-centos:   * yum_package[libcairo2-dev, libpng12-dev, libossp-uuid-dev, libfreerdp-dev, libpango1.0-dev, libtelnet-dev, libssh2-1-dev, libvncserver-dev, libpulse-dev, libssl-dev, libvorbis-dev, gcc, unzip, wget, g++] action install (skipped due to only_if)
+I, [2015-09-18T23:06:07.731021 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:06:07.731100 #19463]  INFO -- default-centos:     - create new file /tmp/kitchen/cache/libtelnet-0.20-2.el6.x86_64.rpm
+I, [2015-09-18T23:06:07.731126 #19463]  INFO -- default-centos:     - update content in file /tmp/kitchen/cache/libtelnet-0.20-2.el6.x86_64.rpm from none to 8e7ac6
+I, [2015-09-18T23:06:07.731149 #19463]  INFO -- default-centos:     (new content is binary, diff output suppressed)
+I, [2015-09-18T23:06:07.731169 #19463]  INFO -- default-centos:     - change mode from '' to '0700'
+I, [2015-09-18T23:06:08.664974 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:06:08.665062 #19463]  INFO -- default-centos:     - create new file /tmp/kitchen/cache/libtelnet-devel-0.20-2.el6.x86_64.rpm
+I, [2015-09-18T23:06:08.665088 #19463]  INFO -- default-centos:     - update content in file /tmp/kitchen/cache/libtelnet-devel-0.20-2.el6.x86_64.rpm from none to b8f0ff
+I, [2015-09-18T23:06:08.665110 #19463]  INFO -- default-centos:     (new content is binary, diff output suppressed)
+I, [2015-09-18T23:06:08.665130 #19463]  INFO -- default-centos:     - change mode from '' to '0700'
+I, [2015-09-18T23:06:08.921427 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:06:08.921515 #19463]  INFO -- default-centos:     - execute "bash"  "/tmp/chef-script20150918-54-oqm6bm"
+I, [2015-09-18T23:06:09.178271 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:06:09.178357 #19463]  INFO -- default-centos:     - execute "bash"  "/tmp/chef-script20150918-54-dsognn"
+I, [2015-09-18T23:06:09.178383 #19463]  INFO -- default-centos: Recipe: guacamole::tomcat
+I, [2015-09-18T23:06:50.688101 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:06:50.748688 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:06:50.748803 #19463]  INFO -- default-centos:     - update content in file /tmp/kitchen/cache/apache-tomcat-8.0.26.zip from none to f0f18a
+I, [2015-09-18T23:06:50.748852 #19463]  INFO -- default-centos:     (new content is binary, diff output suppressed)
+I, [2015-09-18T23:06:50.749539 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:06:50.942618 #19463]  INFO -- default-centos:  (up to date)
+I, [2015-09-18T23:06:51.119787 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:06:51.119867 #19463]  INFO -- default-centos:     - execute "bash"  "/tmp/chef-script20150918-54-x85pj0"
+I, [2015-09-18T23:06:51.139202 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:06:51.139289 #19463]  INFO -- default-centos:     - create new file /etc/profile.d/tomcat.sh
+I, [2015-09-18T23:06:51.139314 #19463]  INFO -- default-centos:     - update content in file /etc/profile.d/tomcat.sh from none to bb4bbb
+I, [2015-09-18T23:06:51.139338 #19463]  INFO -- default-centos:     --- /etc/profile.d/tomcat.sh	2015-09-18 17:36:51.130430572 +0000
+I, [2015-09-18T23:06:51.139360 #19463]  INFO -- default-centos:     +++ /tmp/chef-rendered-template20150918-54-1ok1trr	2015-09-18 17:36:51.130430572 +0000
+I, [2015-09-18T23:06:51.139380 #19463]  INFO -- default-centos:     @@ -1 +1,6 @@
+I, [2015-09-18T23:06:51.139399 #19463]  INFO -- default-centos:     +#!/bin/bash
+I, [2015-09-18T23:06:51.139419 #19463]  INFO -- default-centos:     +CATALINA_HOME=/opt/tomcat
+I, [2015-09-18T23:06:51.139438 #19463]  INFO -- default-centos:     +PATH=$CATALINA_HOME/bin:$PATH
+I, [2015-09-18T23:06:51.139457 #19463]  INFO -- default-centos:     +export PATH CATALINA_HOME
+I, [2015-09-18T23:06:51.139476 #19463]  INFO -- default-centos:     +export CLASSPATH=.
+I, [2015-09-18T23:06:51.139495 #19463]  INFO -- default-centos:     - change mode from '' to '0755'
+I, [2015-09-18T23:06:51.139514 #19463]  INFO -- default-centos:   * template[/etc/init.d/tomcat] action create
+I, [2015-09-18T23:06:51.139533 #19463]  INFO -- default-centos:     - create new file /etc/init.d/tomcat
+I, [2015-09-18T23:06:51.139567 #19463]  INFO -- default-centos:     - update content in file /etc/init.d/tomcat from none to c671d2
+I, [2015-09-18T23:06:51.139602 #19463]  INFO -- default-centos:     --- /etc/init.d/tomcat	2015-09-18 17:36:51.133430573 +0000
+I, [2015-09-18T23:06:51.139625 #19463]  INFO -- default-centos:     +++ /tmp/chef-rendered-template20150918-54-1p7imo4	2015-09-18 17:36:51.133430573 +0000
+I, [2015-09-18T23:06:51.139645 #19463]  INFO -- default-centos:     @@ -1 +1,25 @@
+I, [2015-09-18T23:06:51.139664 #19463]  INFO -- default-centos:     +#!/bin/sh
+I, [2015-09-18T23:06:51.139683 #19463]  INFO -- default-centos:     +# chkconfig: 2345 80 20
+I, [2015-09-18T23:06:51.139701 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:06:51.139720 #19463]  INFO -- default-centos:     +# Description: Tomcat Start/Shutdown script
+I, [2015-09-18T23:06:51.139739 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:06:51.139758 #19463]  INFO -- default-centos:     +export JAVA_HOME=/usr/lib/jvm/java-1.7.0
+I, [2015-09-18T23:06:51.139776 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:06:51.139795 #19463]  INFO -- default-centos:     +case $1 in
+I, [2015-09-18T23:06:51.139814 #19463]  INFO -- default-centos:     +start)
+I, [2015-09-18T23:06:51.139833 #19463]  INFO -- default-centos:     +cd /opt/tomcat/bin/
+I, [2015-09-18T23:06:51.139852 #19463]  INFO -- default-centos:     +./startup.sh
+I, [2015-09-18T23:06:51.139871 #19463]  INFO -- default-centos:     +;;
+I, [2015-09-18T23:06:51.139905 #19463]  INFO -- default-centos:     +stop)
+I, [2015-09-18T23:06:51.139926 #19463]  INFO -- default-centos:     +cd /opt/tomcat/bin/
+I, [2015-09-18T23:06:51.139946 #19463]  INFO -- default-centos:     +./shutdown.sh
+I, [2015-09-18T23:06:51.139965 #19463]  INFO -- default-centos:     +;;
+I, [2015-09-18T23:06:51.139984 #19463]  INFO -- default-centos:     +restart)
+I, [2015-09-18T23:06:51.140002 #19463]  INFO -- default-centos:     +cd /opt/tomcat/bin/
+I, [2015-09-18T23:06:51.140021 #19463]  INFO -- default-centos:     +./shutdown.sh
+I, [2015-09-18T23:06:51.140052 #19463]  INFO -- default-centos:     +cd /opt/tomcat/bin/
+I, [2015-09-18T23:06:51.140084 #19463]  INFO -- default-centos:     +./startup.sh
+I, [2015-09-18T23:06:51.140124 #19463]  INFO -- default-centos:     +;;
+I, [2015-09-18T23:06:51.140157 #19463]  INFO -- default-centos:     +esac
+I, [2015-09-18T23:06:51.140192 #19463]  INFO -- default-centos:     +exit 0
+I, [2015-09-18T23:06:51.140216 #19463]  INFO -- default-centos:     - change mode from '' to '0755'
+I, [2015-09-18T23:06:51.161088 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:06:51.161177 #19463]  INFO -- default-centos:     - execute "bash"  "/tmp/chef-script20150918-54-1fxl2k7"
+I, [2015-09-18T23:06:51.163187 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:06:51.163254 #19463]  INFO -- default-centos:     - update content in file /opt/tomcat/conf/tomcat-users.xml from 04d901 to 74c5b1
+I, [2015-09-18T23:06:51.163280 #19463]  INFO -- default-centos:     --- /opt/tomcat/conf/tomcat-users.xml	2015-08-18 12:39:54.000000000 +0000
+I, [2015-09-18T23:06:51.163302 #19463]  INFO -- default-centos:     +++ /tmp/chef-rendered-template20150918-54-11tz47f	2015-09-18 17:36:51.158430573 +0000
+I, [2015-09-18T23:06:51.163323 #19463]  INFO -- default-centos:     @@ -36,5 +36,12 @@
+I, [2015-09-18T23:06:51.163428 #19463]  INFO -- default-centos: <user username="both" password="tomcat" roles="tomcat,role1"/>
+I, [2015-09-18T23:06:51.163465 #19463]  INFO -- default-centos: <user username="role1" password="tomcat" roles="role1"/>
+I, [2015-09-18T23:06:51.163488 #19463]  INFO -- default-centos:      -->
+I, [2015-09-18T23:06:51.163508 #19463]  INFO -- default-centos:     +<role rolename="manager-gui"/>
+I, [2015-09-18T23:06:51.163528 #19463]  INFO -- default-centos:     +<role rolename="manager-script"/>
+I, [2015-09-18T23:06:51.163547 #19463]  INFO -- default-centos:     +<role rolename="manager-jmx"/>
+I, [2015-09-18T23:06:51.163593 #19463]  INFO -- default-centos:     +<role rolename="manager-status"/>
+I, [2015-09-18T23:06:51.163618 #19463]  INFO -- default-centos:     +<role rolename="admin-gui"/>
+I, [2015-09-18T23:06:51.163638 #19463]  INFO -- default-centos:     +<role rolename="admin-script"/>
+I, [2015-09-18T23:06:51.163658 #19463]  INFO -- default-centos:     +<user username="admin" password="admin" roles="manager-gui,manager-script,manager-jmx,manager-status,admin-gui,admin-script"/>
+I, [2015-09-18T23:06:51.163678 #19463]  INFO -- default-centos:      </tomcat-users>
+I, [2015-09-18T23:06:51.163698 #19463]  INFO -- default-centos:     - change mode from '0644' to '0755'
+I, [2015-09-18T23:06:51.163717 #19463]  INFO -- default-centos: Recipe: guacamole::default
+I, [2015-09-18T23:06:51.163737 #19463]  INFO -- default-centos:   * magic_shell_environment[LD_LIBRARY_PATH] action add (skipped due to only_if)
+I, [2015-09-18T23:07:18.277501 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:07:18.277635 #19463]  INFO -- default-centos:     - execute "bash"  "/tmp/chef-script20150918-54-y7w2ul"
+I, [2015-09-18T23:07:18.346989 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:07:18.347100 #19463]  INFO -- default-centos:     - enable service service[guacd]
+I, [2015-09-18T23:07:18.434483 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:07:18.434595 #19463]  INFO -- default-centos:     - start service service[guacd]
+I, [2015-09-18T23:07:18.434625 #19463]  INFO -- default-centos:   * directory[/var/lib/guacamole/classpath] action create
+I, [2015-09-18T23:07:18.434647 #19463]  INFO -- default-centos:     - create new directory /var/lib/guacamole/classpath
+I, [2015-09-18T23:07:18.434669 #19463]  INFO -- default-centos:     - change mode from '' to '0755'
+I, [2015-09-18T23:07:18.434689 #19463]  INFO -- default-centos:     - change owner from '' to 'root'
+I, [2015-09-18T23:07:18.434729 #19463]  INFO -- default-centos:     - change group from '' to 'root'
+I, [2015-09-18T23:07:18.434752 #19463]  INFO -- default-centos:   * directory[/root/.guacamole] action create
+I, [2015-09-18T23:07:18.434771 #19463]  INFO -- default-centos:     - create new directory /root/.guacamole
+I, [2015-09-18T23:07:18.434812 #19463]  INFO -- default-centos:     - change mode from '' to '0755'
+I, [2015-09-18T23:07:18.434836 #19463]  INFO -- default-centos:     - change owner from '' to 'root'
+I, [2015-09-18T23:07:18.434856 #19463]  INFO -- default-centos:     - change group from '' to 'root'
+I, [2015-09-18T23:07:49.936277 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:07:49.936372 #19463]  INFO -- default-centos:     - execute "bash"  "/tmp/chef-script20150918-54-i0n9c6"
+I, [2015-09-18T23:07:51.301446 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:07:51.301529 #19463]  INFO -- default-centos:     - restart service service[tomcat]
+I, [2015-09-18T23:07:51.301586 #19463]  INFO -- default-centos:   * template[/root/.guacamole/guacamole.properties] action create
+I, [2015-09-18T23:07:51.301796 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:07:51.301829 #19463]  INFO -- default-centos:     - update content in file /root/.guacamole/guacamole.properties from none to 938790
+I, [2015-09-18T23:07:51.301852 #19463]  INFO -- default-centos:     --- /root/.guacamole/guacamole.properties	2015-09-18 17:37:51.295432365 +0000
+I, [2015-09-18T23:07:51.301873 #19463]  INFO -- default-centos:     +++ /tmp/chef-rendered-template20150918-54-repnyk	2015-09-18 17:37:51.294432365 +0000
+I, [2015-09-18T23:07:51.301894 #19463]  INFO -- default-centos:     @@ -1 +1,18 @@
+I, [2015-09-18T23:07:51.301916 #19463]  INFO -- default-centos:     +#guacamole properties
+I, [2015-09-18T23:07:51.301937 #19463]  INFO -- default-centos:     +# Hostname and port of guacamole proxy
+I, [2015-09-18T23:07:51.301956 #19463]  INFO -- default-centos:     +guacd-hostname: localhost
+I, [2015-09-18T23:07:51.301975 #19463]  INFO -- default-centos:     +guacd-port:     4822
+I, [2015-09-18T23:07:51.301993 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:07:51.302013 #19463]  INFO -- default-centos:     +# Auth provider class (authenticates user/pass combination, needed if using the provided login screen)
+I, [2015-09-18T23:07:51.302032 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:07:51.302056 #19463]  INFO -- default-centos:     +auth-provider: net.sourceforge.guacamole.net.auth.mysql.MySQLAuthenticationProvider
+I, [2015-09-18T23:07:51.302094 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:07:51.302130 #19463]  INFO -- default-centos:     +# Location to read extra .jar's from
+I, [2015-09-18T23:07:51.302157 #19463]  INFO -- default-centos:     +lib-directory:  /var/lib/guacamole/classpath
+I, [2015-09-18T23:07:51.302186 #19463]  INFO -- default-centos:     +# MySQL properties
+I, [2015-09-18T23:07:51.302212 #19463]  INFO -- default-centos:     +mysql-hostname: localhost
+I, [2015-09-18T23:07:51.302238 #19463]  INFO -- default-centos:     +mysql-port: 3306
+I, [2015-09-18T23:07:51.302265 #19463]  INFO -- default-centos:     +mysql-database: guacamole_db
+I, [2015-09-18T23:07:51.302285 #19463]  INFO -- default-centos:     +mysql-username: guacamole_user
+I, [2015-09-18T23:07:51.302304 #19463]  INFO -- default-centos:     +mysql-password: guacamole
+I, [2015-09-18T23:07:51.309843 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:07:51.315633 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:07:51.315713 #19463]  INFO -- default-centos:     - update content in file /var/lib/guacamole/classpath/guacamole-auth-jdbc-mysql-0.9.7.jar from none to ebb82a
+I, [2015-09-18T23:07:51.315739 #19463]  INFO -- default-centos:     (new content is binary, diff output suppressed)
+I, [2015-09-18T23:07:51.324826 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:07:51.326104 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:07:51.326167 #19463]  INFO -- default-centos:     - update content in file /var/lib/guacamole/classpath/mysql-connector-java-5.1.35-bin.jar from none to 60b046
+I, [2015-09-18T23:07:51.327771 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:08:44.959945 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:08:44.960050 #19463]  INFO -- default-centos:     - install version 5.1.73-5.el6_6 of package mysql-server
+I, [2015-09-18T23:08:45.069779 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:08:45.069874 #19463]  INFO -- default-centos:     - enable service service[mysqld]
+I, [2015-09-18T23:08:46.473015 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:08:46.473107 #19463]  INFO -- default-centos:     - start service service[mysqld]
+I, [2015-09-18T23:08:46.473141 #19463]  INFO -- default-centos:   * template[/tmp/guacamolemysql.sql] action create
+I, [2015-09-18T23:08:46.474288 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:08:46.474371 #19463]  INFO -- default-centos:     - update content in file /tmp/guacamolemysql.sql from none to 54fed1
+I, [2015-09-18T23:08:46.474403 #19463]  INFO -- default-centos:     --- /tmp/guacamolemysql.sql	2015-09-18 17:38:46.469434010 +0000
+I, [2015-09-18T23:08:46.474429 #19463]  INFO -- default-centos:     +++ /tmp/chef-rendered-template20150918-54-hgnp23	2015-09-18 17:38:46.469434010 +0000
+I, [2015-09-18T23:08:46.474463 #19463]  INFO -- default-centos:     @@ -1 +1,12 @@
+I, [2015-09-18T23:08:46.474488 #19463]  INFO -- default-centos:     +#MySQL Guacamole Script
+I, [2015-09-18T23:08:46.474521 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.474545 #19463]  INFO -- default-centos:     +CREATE DATABASE guacamole_db;
+I, [2015-09-18T23:08:46.474598 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.474626 #19463]  INFO -- default-centos:     +CREATE USER 'guacamole_user'@'localhost' IDENTIFIED BY 'guacamole';
+I, [2015-09-18T23:08:46.474658 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.474683 #19463]  INFO -- default-centos:     +GRANT ALL ON *.* to 'guacamole_user'@'localhost' IDENTIFIED BY 'guacamole';
+I, [2015-09-18T23:08:46.474715 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.474739 #19463]  INFO -- default-centos:     +FLUSH PRIVILEGES;
+I, [2015-09-18T23:08:46.474771 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.474794 #19463]  INFO -- default-centos:     +quit
+I, [2015-09-18T23:08:46.474818 #19463]  INFO -- default-centos:     - change mode from '' to '0755'
+I, [2015-09-18T23:08:46.481357 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:08:46.481466 #19463]  INFO -- default-centos:     - create new file /tmp/initdb.sql
+I, [2015-09-18T23:08:46.481501 #19463]  INFO -- default-centos:     - update content in file /tmp/initdb.sql from none to fdf274
+I, [2015-09-18T23:08:46.481527 #19463]  INFO -- default-centos:     --- /tmp/initdb.sql	2015-09-18 17:38:46.473434010 +0000
+I, [2015-09-18T23:08:46.481576 #19463]  INFO -- default-centos:     +++ /tmp/.initdb.sql20150918-54-1v2tk61	2015-09-18 17:38:46.473434010 +0000
+I, [2015-09-18T23:08:46.481611 #19463]  INFO -- default-centos:     @@ -1 +1,284 @@
+I, [2015-09-18T23:08:46.481637 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.481670 #19463]  INFO -- default-centos:     +-- Copyright (C) 2013 Glyptodon LLC
+I, [2015-09-18T23:08:46.481698 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.481722 #19463]  INFO -- default-centos:     +-- Permission is hereby granted, free of charge, to any person obtaining a copy
+I, [2015-09-18T23:08:46.481747 #19463]  INFO -- default-centos:     +-- of this software and associated documentation files (the "Software"), to deal
+I, [2015-09-18T23:08:46.481781 #19463]  INFO -- default-centos:     +-- in the Software without restriction, including without limitation the rights
+I, [2015-09-18T23:08:46.481806 #19463]  INFO -- default-centos:     +-- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+I, [2015-09-18T23:08:46.481840 #19463]  INFO -- default-centos:     +-- copies of the Software, and to permit persons to whom the Software is
+I, [2015-09-18T23:08:46.481865 #19463]  INFO -- default-centos:     +-- furnished to do so, subject to the following conditions:
+I, [2015-09-18T23:08:46.481901 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.481929 #19463]  INFO -- default-centos:     +-- The above copyright notice and this permission notice shall be included in
+I, [2015-09-18T23:08:46.481975 #19463]  INFO -- default-centos:     +-- all copies or substantial portions of the Software.
+I, [2015-09-18T23:08:46.482003 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.482028 #19463]  INFO -- default-centos:     +-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+I, [2015-09-18T23:08:46.482053 #19463]  INFO -- default-centos:     +-- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+I, [2015-09-18T23:08:46.482082 #19463]  INFO -- default-centos:     +-- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+I, [2015-09-18T23:08:46.482107 #19463]  INFO -- default-centos:     +-- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+I, [2015-09-18T23:08:46.482132 #19463]  INFO -- default-centos:     +-- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+I, [2015-09-18T23:08:46.482158 #19463]  INFO -- default-centos:     +-- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+I, [2015-09-18T23:08:46.482182 #19463]  INFO -- default-centos:     +-- THE SOFTWARE.
+I, [2015-09-18T23:08:46.482206 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.482230 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.482254 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.482278 #19463]  INFO -- default-centos:     +-- Table of connection groups. Each connection group has a name.
+I, [2015-09-18T23:08:46.482303 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.482327 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.482363 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.482388 #19463]  INFO -- default-centos:     +CREATE TABLE `guacamole_connection_group` (
+I, [2015-09-18T23:08:46.482420 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.482444 #19463]  INFO -- default-centos:     +  `connection_group_id`   int(11)      NOT NULL AUTO_INCREMENT,
+I, [2015-09-18T23:08:46.482470 #19463]  INFO -- default-centos:     +  `parent_id`             int(11),
+I, [2015-09-18T23:08:46.482500 #19463]  INFO -- default-centos:     +  `connection_group_name` varchar(128) NOT NULL,
+I, [2015-09-18T23:08:46.482525 #19463]  INFO -- default-centos:     +  `type`                  enum('ORGANIZATIONAL',
+I, [2015-09-18T23:08:46.482567 #19463]  INFO -- default-centos:     +                               'BALANCING') NOT NULL DEFAULT 'ORGANIZATIONAL',
+I, [2015-09-18T23:08:46.482612 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.482639 #19463]  INFO -- default-centos:     +  PRIMARY KEY (`connection_group_id`),
+I, [2015-09-18T23:08:46.482673 #19463]  INFO -- default-centos:     +  UNIQUE KEY `connection_group_name_parent` (`connection_group_name`, `parent_id`),
+I, [2015-09-18T23:08:46.482698 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.482730 #19463]  INFO -- default-centos:     +  CONSTRAINT `guacamole_connection_group_ibfk_1`
+I, [2015-09-18T23:08:46.482755 #19463]  INFO -- default-centos:     +    FOREIGN KEY (`parent_id`)
+I, [2015-09-18T23:08:46.482787 #19463]  INFO -- default-centos:     +    REFERENCES `guacamole_connection_group` (`connection_group_id`) ON DELETE CASCADE
+I, [2015-09-18T23:08:46.482811 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.482848 #19463]  INFO -- default-centos:     +) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+I, [2015-09-18T23:08:46.482877 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.482908 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.482933 #19463]  INFO -- default-centos:     +-- Table of connections. Each connection has a name, protocol, and
+I, [2015-09-18T23:08:46.482959 #19463]  INFO -- default-centos:     +-- associated set of parameters.
+I, [2015-09-18T23:08:46.482999 #19463]  INFO -- default-centos:     +-- A connection may belong to a connection group.
+I, [2015-09-18T23:08:46.483026 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.483050 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.483082 #19463]  INFO -- default-centos:     +CREATE TABLE `guacamole_connection` (
+I, [2015-09-18T23:08:46.483108 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.483141 #19463]  INFO -- default-centos:     +  `connection_id`       int(11)      NOT NULL AUTO_INCREMENT,
+I, [2015-09-18T23:08:46.483166 #19463]  INFO -- default-centos:     +  `connection_name`     varchar(128) NOT NULL,
+I, [2015-09-18T23:08:46.483191 #19463]  INFO -- default-centos:     +  `parent_id`           int(11),
+I, [2015-09-18T23:08:46.483215 #19463]  INFO -- default-centos:     +  `protocol`            varchar(32)  NOT NULL,
+I, [2015-09-18T23:08:46.483239 #19463]  INFO -- default-centos:     +  
+I, [2015-09-18T23:08:46.483264 #19463]  INFO -- default-centos:     +  PRIMARY KEY (`connection_id`),
+I, [2015-09-18T23:08:46.483289 #19463]  INFO -- default-centos:     +  UNIQUE KEY `connection_name_parent` (`connection_name`, `parent_id`),
+I, [2015-09-18T23:08:46.483314 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.483341 #19463]  INFO -- default-centos:     +  CONSTRAINT `guacamole_connection_ibfk_1`
+I, [2015-09-18T23:08:46.483367 #19463]  INFO -- default-centos:     +    FOREIGN KEY (`parent_id`)
+I, [2015-09-18T23:08:46.483391 #19463]  INFO -- default-centos:     +    REFERENCES `guacamole_connection_group` (`connection_group_id`) ON DELETE CASCADE
+I, [2015-09-18T23:08:46.483423 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.483447 #19463]  INFO -- default-centos:     +) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+I, [2015-09-18T23:08:46.483478 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.483502 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.483526 #19463]  INFO -- default-centos:     +-- Table of users. Each user has a unique username and a hashed password
+I, [2015-09-18T23:08:46.483567 #19463]  INFO -- default-centos:     +-- with corresponding salt. Although the authentication system will always set
+I, [2015-09-18T23:08:46.483604 #19463]  INFO -- default-centos:     +-- salted passwords, other systems may set unsalted passwords by simply not
+I, [2015-09-18T23:08:46.483631 #19463]  INFO -- default-centos:     +-- providing the salt.
+I, [2015-09-18T23:08:46.483655 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.483679 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.483707 #19463]  INFO -- default-centos:     +CREATE TABLE `guacamole_user` (
+I, [2015-09-18T23:08:46.483732 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.483756 #19463]  INFO -- default-centos:     +  `user_id`       int(11)      NOT NULL AUTO_INCREMENT,
+I, [2015-09-18T23:08:46.483789 #19463]  INFO -- default-centos:     +  `username`      varchar(128) NOT NULL,
+I, [2015-09-18T23:08:46.483814 #19463]  INFO -- default-centos:     +  `password_hash` binary(32)   NOT NULL,
+I, [2015-09-18T23:08:46.483840 #19463]  INFO -- default-centos:     +  `password_salt` binary(32),
+I, [2015-09-18T23:08:46.488543 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:08:46.488660 #19463]  INFO -- default-centos:     +  `expired`       boolean      NOT NULL DEFAULT 0,
+I, [2015-09-18T23:08:46.488690 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.488716 #19463]  INFO -- default-centos:     +  PRIMARY KEY (`user_id`),
+I, [2015-09-18T23:08:46.488741 #19463]  INFO -- default-centos:     +  UNIQUE KEY `username` (`username`)
+I, [2015-09-18T23:08:46.488768 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.488792 #19463]  INFO -- default-centos:     +) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+I, [2015-09-18T23:08:46.488816 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.488845 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.488871 #19463]  INFO -- default-centos:     +-- Table of connection parameters. Each parameter is simply a name/value pair
+I, [2015-09-18T23:08:46.488911 #19463]  INFO -- default-centos:     +-- associated with a connection.
+I, [2015-09-18T23:08:46.488938 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.488984 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.489016 #19463]  INFO -- default-centos:     +CREATE TABLE `guacamole_connection_parameter` (
+I, [2015-09-18T23:08:46.489040 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.489064 #19463]  INFO -- default-centos:     +  `connection_id`   int(11)       NOT NULL,
+I, [2015-09-18T23:08:46.489088 #19463]  INFO -- default-centos:     +  `parameter_name`  varchar(128)  NOT NULL,
+I, [2015-09-18T23:08:46.489112 #19463]  INFO -- default-centos:     +  `parameter_value` varchar(4096) NOT NULL,
+I, [2015-09-18T23:08:46.489136 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.489162 #19463]  INFO -- default-centos:     +  PRIMARY KEY (`connection_id`,`parameter_name`),
+I, [2015-09-18T23:08:46.489185 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.489209 #19463]  INFO -- default-centos:     +  CONSTRAINT `guacamole_connection_parameter_ibfk_1`
+I, [2015-09-18T23:08:46.489234 #19463]  INFO -- default-centos:     +    FOREIGN KEY (`connection_id`)
+I, [2015-09-18T23:08:46.489258 #19463]  INFO -- default-centos:     +    REFERENCES `guacamole_connection` (`connection_id`) ON DELETE CASCADE
+I, [2015-09-18T23:08:46.489286 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.489311 #19463]  INFO -- default-centos:     +) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+I, [2015-09-18T23:08:46.489334 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.489358 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.489382 #19463]  INFO -- default-centos:     +-- Table of connection permissions. Each connection permission grants a user
+I, [2015-09-18T23:08:46.489407 #19463]  INFO -- default-centos:     +-- specific access to a connection.
+I, [2015-09-18T23:08:46.489431 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.489454 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.489482 #19463]  INFO -- default-centos:     +CREATE TABLE `guacamole_connection_permission` (
+I, [2015-09-18T23:08:46.489510 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.489535 #19463]  INFO -- default-centos:     +  `user_id`       int(11) NOT NULL,
+I, [2015-09-18T23:08:46.489581 #19463]  INFO -- default-centos:     +  `connection_id` int(11) NOT NULL,
+I, [2015-09-18T23:08:46.489610 #19463]  INFO -- default-centos:     +  `permission`    enum('READ',
+I, [2015-09-18T23:08:46.489636 #19463]  INFO -- default-centos:     +                       'UPDATE',
+I, [2015-09-18T23:08:46.489669 #19463]  INFO -- default-centos:     +                       'DELETE',
+I, [2015-09-18T23:08:46.489694 #19463]  INFO -- default-centos:     +                       'ADMINISTER') NOT NULL,
+I, [2015-09-18T23:08:46.489717 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.489741 #19463]  INFO -- default-centos:     +  PRIMARY KEY (`user_id`,`connection_id`,`permission`),
+I, [2015-09-18T23:08:46.489765 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.489789 #19463]  INFO -- default-centos:     +  CONSTRAINT `guacamole_connection_permission_ibfk_1`
+I, [2015-09-18T23:08:46.489814 #19463]  INFO -- default-centos:     +    FOREIGN KEY (`connection_id`)
+I, [2015-09-18T23:08:46.489842 #19463]  INFO -- default-centos:     +    REFERENCES `guacamole_connection` (`connection_id`) ON DELETE CASCADE,
+I, [2015-09-18T23:08:46.489867 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.489905 #19463]  INFO -- default-centos:     +  CONSTRAINT `guacamole_connection_permission_ibfk_2`
+I, [2015-09-18T23:08:46.489932 #19463]  INFO -- default-centos:     +    FOREIGN KEY (`user_id`)
+I, [2015-09-18T23:08:46.489966 #19463]  INFO -- default-centos:     +    REFERENCES `guacamole_user` (`user_id`) ON DELETE CASCADE
+I, [2015-09-18T23:08:46.489992 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.490017 #19463]  INFO -- default-centos:     +) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+I, [2015-09-18T23:08:46.490041 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.490064 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.490094 #19463]  INFO -- default-centos:     +-- Table of connection group permissions. Each group permission grants a user
+I, [2015-09-18T23:08:46.490121 #19463]  INFO -- default-centos:     +-- specific access to a connection group.
+I, [2015-09-18T23:08:46.490145 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.490175 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.490199 #19463]  INFO -- default-centos:     +CREATE TABLE `guacamole_connection_group_permission` (
+I, [2015-09-18T23:08:46.490223 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.490248 #19463]  INFO -- default-centos:     +  `user_id`             int(11) NOT NULL,
+I, [2015-09-18T23:08:46.490272 #19463]  INFO -- default-centos:     +  `connection_group_id` int(11) NOT NULL,
+I, [2015-09-18T23:08:46.490296 #19463]  INFO -- default-centos:     +  `permission`          enum('READ',
+I, [2015-09-18T23:08:46.490322 #19463]  INFO -- default-centos:     +                             'UPDATE',
+I, [2015-09-18T23:08:46.490347 #19463]  INFO -- default-centos:     +                             'DELETE',
+I, [2015-09-18T23:08:46.490376 #19463]  INFO -- default-centos:     +                             'ADMINISTER') NOT NULL,
+I, [2015-09-18T23:08:46.490401 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.490430 #19463]  INFO -- default-centos:     +  PRIMARY KEY (`user_id`,`connection_group_id`,`permission`),
+I, [2015-09-18T23:08:46.490455 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.490483 #19463]  INFO -- default-centos:     +  CONSTRAINT `guacamole_connection_group_permission_ibfk_1`
+I, [2015-09-18T23:08:46.490507 #19463]  INFO -- default-centos:     +    FOREIGN KEY (`connection_group_id`)
+I, [2015-09-18T23:08:46.490532 #19463]  INFO -- default-centos:     +    REFERENCES `guacamole_connection_group` (`connection_group_id`) ON DELETE CASCADE,
+I, [2015-09-18T23:08:46.490583 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.490614 #19463]  INFO -- default-centos:     +  CONSTRAINT `guacamole_connection_group_permission_ibfk_2`
+I, [2015-09-18T23:08:46.490640 #19463]  INFO -- default-centos:     +    FOREIGN KEY (`user_id`)
+I, [2015-09-18T23:08:46.490664 #19463]  INFO -- default-centos:     +    REFERENCES `guacamole_user` (`user_id`) ON DELETE CASCADE
+I, [2015-09-18T23:08:46.490693 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.490717 #19463]  INFO -- default-centos:     +) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+I, [2015-09-18T23:08:46.490741 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.490764 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.490788 #19463]  INFO -- default-centos:     +-- Table of system permissions. Each system permission grants a user a
+I, [2015-09-18T23:08:46.490818 #19463]  INFO -- default-centos:     +-- system-level privilege of some kind.
+I, [2015-09-18T23:08:46.490844 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.490869 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.490901 #19463]  INFO -- default-centos:     +CREATE TABLE `guacamole_system_permission` (
+I, [2015-09-18T23:08:46.490927 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.490951 #19463]  INFO -- default-centos:     +  `user_id`    int(11) NOT NULL,
+I, [2015-09-18T23:08:46.490975 #19463]  INFO -- default-centos:     +  `permission` enum('CREATE_CONNECTION',
+I, [2015-09-18T23:08:46.491003 #19463]  INFO -- default-centos:     +		    'CREATE_CONNECTION_GROUP',
+I, [2015-09-18T23:08:46.491029 #19463]  INFO -- default-centos:     +                    'CREATE_USER',
+I, [2015-09-18T23:08:46.491054 #19463]  INFO -- default-centos:     +                    'ADMINISTER') NOT NULL,
+I, [2015-09-18T23:08:46.491078 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.491101 #19463]  INFO -- default-centos:     +  PRIMARY KEY (`user_id`,`permission`),
+I, [2015-09-18T23:08:46.491128 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.491160 #19463]  INFO -- default-centos:     +  CONSTRAINT `guacamole_system_permission_ibfk_1`
+I, [2015-09-18T23:08:46.491187 #19463]  INFO -- default-centos:     +    FOREIGN KEY (`user_id`)
+I, [2015-09-18T23:08:46.491211 #19463]  INFO -- default-centos:     +    REFERENCES `guacamole_user` (`user_id`) ON DELETE CASCADE
+I, [2015-09-18T23:08:46.491236 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.491260 #19463]  INFO -- default-centos:     +) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+I, [2015-09-18T23:08:46.491284 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.491307 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.491331 #19463]  INFO -- default-centos:     +-- Table of user permissions. Each user permission grants a user access to
+I, [2015-09-18T23:08:46.491360 #19463]  INFO -- default-centos:     +-- another user (the "affected" user) for a specific type of operation.
+I, [2015-09-18T23:08:46.491384 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.491416 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.491440 #19463]  INFO -- default-centos:     +CREATE TABLE `guacamole_user_permission` (
+I, [2015-09-18T23:08:46.491464 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.491491 #19463]  INFO -- default-centos:     +  `user_id`          int(11) NOT NULL,
+I, [2015-09-18T23:08:46.491515 #19463]  INFO -- default-centos:     +  `affected_user_id` int(11) NOT NULL,
+I, [2015-09-18T23:08:46.491539 #19463]  INFO -- default-centos:     +  `permission`       enum('READ',
+I, [2015-09-18T23:08:46.491588 #19463]  INFO -- default-centos:     +                          'UPDATE',
+I, [2015-09-18T23:08:46.491617 #19463]  INFO -- default-centos:     +                          'DELETE',
+I, [2015-09-18T23:08:46.491642 #19463]  INFO -- default-centos:     +                          'ADMINISTER') NOT NULL,
+I, [2015-09-18T23:08:46.491678 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.493532 #19463]  INFO -- default-centos: fected_user_id`,`permission`),
+I, [2015-09-18T23:08:46.493618 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.493646 #19463]  INFO -- default-centos:     +  CONSTRAINT `guacamole_user_permission_ibfk_1`
+I, [2015-09-18T23:08:46.493671 #19463]  INFO -- default-centos:     +    FOREIGN KEY (`affected_user_id`)
+I, [2015-09-18T23:08:46.493697 #19463]  INFO -- default-centos:     +    REFERENCES `guacamole_user` (`user_id`) ON DELETE CASCADE,
+I, [2015-09-18T23:08:46.493725 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.493750 #19463]  INFO -- default-centos:     +  CONSTRAINT `guacamole_user_permission_ibfk_2`
+I, [2015-09-18T23:08:46.493774 #19463]  INFO -- default-centos:     +    FOREIGN KEY (`user_id`)
+I, [2015-09-18T23:08:46.493798 #19463]  INFO -- default-centos:     +    REFERENCES `guacamole_user` (`user_id`) ON DELETE CASCADE
+I, [2015-09-18T23:08:46.493823 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.493847 #19463]  INFO -- default-centos:     +) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+I, [2015-09-18T23:08:46.493874 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.493913 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.493948 #19463]  INFO -- default-centos:     +-- Table of connection history records. Each record defines a specific user's
+I, [2015-09-18T23:08:46.493973 #19463]  INFO -- default-centos:     +-- session, including the connection used, the start time, and the end time
+I, [2015-09-18T23:08:46.493998 #19463]  INFO -- default-centos:     +-- (if any).
+I, [2015-09-18T23:08:46.494022 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.494050 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.494074 #19463]  INFO -- default-centos:     +CREATE TABLE `guacamole_connection_history` (
+I, [2015-09-18T23:08:46.494098 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.494125 #19463]  INFO -- default-centos:     +  `history_id`    int(11)  NOT NULL AUTO_INCREMENT,
+I, [2015-09-18T23:08:46.494151 #19463]  INFO -- default-centos:     +  `user_id`       int(11)  NOT NULL,
+I, [2015-09-18T23:08:46.494187 #19463]  INFO -- default-centos:     +  `connection_id` int(11)  NOT NULL,
+I, [2015-09-18T23:08:46.494213 #19463]  INFO -- default-centos:     +  `start_date`    datetime NOT NULL,
+I, [2015-09-18T23:08:46.494238 #19463]  INFO -- default-centos:     +  `end_date`      datetime DEFAULT NULL,
+I, [2015-09-18T23:08:46.494262 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.494286 #19463]  INFO -- default-centos:     +  PRIMARY KEY (`history_id`),
+I, [2015-09-18T23:08:46.494309 #19463]  INFO -- default-centos:     +  KEY `user_id` (`user_id`),
+I, [2015-09-18T23:08:46.494333 #19463]  INFO -- default-centos:     +  KEY `connection_id` (`connection_id`),
+I, [2015-09-18T23:08:46.494364 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.494388 #19463]  INFO -- default-centos:     +  CONSTRAINT `guacamole_connection_history_ibfk_1`
+I, [2015-09-18T23:08:46.494418 #19463]  INFO -- default-centos:     +    FOREIGN KEY (`user_id`)
+I, [2015-09-18T23:08:46.494443 #19463]  INFO -- default-centos:     +    REFERENCES `guacamole_user` (`user_id`) ON DELETE CASCADE,
+I, [2015-09-18T23:08:46.494468 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.494491 #19463]  INFO -- default-centos:     +  CONSTRAINT `guacamole_connection_history_ibfk_2`
+I, [2015-09-18T23:08:46.494516 #19463]  INFO -- default-centos:     +    FOREIGN KEY (`connection_id`)
+I, [2015-09-18T23:08:46.494540 #19463]  INFO -- default-centos:     +    REFERENCES `guacamole_connection` (`connection_id`) ON DELETE CASCADE
+I, [2015-09-18T23:08:46.494586 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.494618 #19463]  INFO -- default-centos:     +) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+I, [2015-09-18T23:08:46.494642 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.494673 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.494697 #19463]  INFO -- default-centos:     +-- Copyright (C) 2015 Glyptodon LLC
+I, [2015-09-18T23:08:46.494721 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.494745 #19463]  INFO -- default-centos:     +-- Permission is hereby granted, free of charge, to any person obtaining a copy
+I, [2015-09-18T23:08:46.494771 #19463]  INFO -- default-centos:     +-- of this software and associated documentation files (the "Software"), to deal
+I, [2015-09-18T23:08:46.494795 #19463]  INFO -- default-centos:     +-- in the Software without restriction, including without limitation the rights
+I, [2015-09-18T23:08:46.494821 #19463]  INFO -- default-centos:     +-- to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+I, [2015-09-18T23:08:46.494846 #19463]  INFO -- default-centos:     +-- copies of the Software, and to permit persons to whom the Software is
+I, [2015-09-18T23:08:46.494875 #19463]  INFO -- default-centos:     +-- furnished to do so, subject to the following conditions:
+I, [2015-09-18T23:08:46.494917 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.494953 #19463]  INFO -- default-centos:     +-- The above copyright notice and this permission notice shall be included in
+I, [2015-09-18T23:08:46.494979 #19463]  INFO -- default-centos:     +-- all copies or substantial portions of the Software.
+I, [2015-09-18T23:08:46.495004 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.495029 #19463]  INFO -- default-centos:     +-- THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+I, [2015-09-18T23:08:46.495054 #19463]  INFO -- default-centos:     +-- IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+I, [2015-09-18T23:08:46.495085 #19463]  INFO -- default-centos:     +-- FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+I, [2015-09-18T23:08:46.495117 #19463]  INFO -- default-centos:     +-- AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+I, [2015-09-18T23:08:46.495142 #19463]  INFO -- default-centos:     +-- LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+I, [2015-09-18T23:08:46.495175 #19463]  INFO -- default-centos:     +-- OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+I, [2015-09-18T23:08:46.495203 #19463]  INFO -- default-centos:     +-- THE SOFTWARE.
+I, [2015-09-18T23:08:46.495228 #19463]  INFO -- default-centos:     +--
+I, [2015-09-18T23:08:46.495252 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.495276 #19463]  INFO -- default-centos:     +-- Create default user "guacadmin" with password "guacadmin"
+I, [2015-09-18T23:08:46.495300 #19463]  INFO -- default-centos:     +INSERT INTO guacamole_user (username, password_hash, password_salt)
+I, [2015-09-18T23:08:46.495326 #19463]  INFO -- default-centos:     +VALUES ('guacadmin',
+I, [2015-09-18T23:08:46.495360 #19463]  INFO -- default-centos:     +    x'CA458A7D494E3BE824F5E1E175A1556C0F8EEF2C2D7DF3633BEC4A29C4411960',  -- 'guacadmin'
+I, [2015-09-18T23:08:46.495385 #19463]  INFO -- default-centos:     +    x'FE24ADC5E11E2B25288D1704ABE67A79E342ECC26064CE69C5B3177795A82264');
+I, [2015-09-18T23:08:46.495419 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.495443 #19463]  INFO -- default-centos:     +-- Grant this user all system permissions
+I, [2015-09-18T23:08:46.495468 #19463]  INFO -- default-centos:     +INSERT INTO guacamole_system_permission
+I, [2015-09-18T23:08:46.495492 #19463]  INFO -- default-centos:     +SELECT user_id, permission
+I, [2015-09-18T23:08:46.495516 #19463]  INFO -- default-centos:     +FROM (
+I, [2015-09-18T23:08:46.495541 #19463]  INFO -- default-centos:     +          SELECT 'guacadmin'  AS username, 'CREATE_CONNECTION'       AS permission
+I, [2015-09-18T23:08:46.495602 #19463]  INFO -- default-centos:     +    UNION SELECT 'guacadmin'  AS username, 'CREATE_CONNECTION_GROUP' AS permission
+I, [2015-09-18T23:08:46.495633 #19463]  INFO -- default-centos:     +    UNION SELECT 'guacadmin'  AS username, 'CREATE_USER'             AS permission
+I, [2015-09-18T23:08:46.495661 #19463]  INFO -- default-centos:     +    UNION SELECT 'guacadmin'  AS username, 'ADMINISTER'              AS permission
+I, [2015-09-18T23:08:46.495691 #19463]  INFO -- default-centos:     +) permissions
+I, [2015-09-18T23:08:46.495716 #19463]  INFO -- default-centos:     +JOIN guacamole_user ON permissions.username = guacamole_user.username;
+I, [2015-09-18T23:08:46.495741 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.495765 #19463]  INFO -- default-centos:     +-- Grant admin permission to read/update/administer self
+I, [2015-09-18T23:08:46.495789 #19463]  INFO -- default-centos:     +INSERT INTO guacamole_user_permission
+I, [2015-09-18T23:08:46.495814 #19463]  INFO -- default-centos:     +SELECT guacamole_user.user_id, affected.user_id, permission
+I, [2015-09-18T23:08:46.495839 #19463]  INFO -- default-centos:     +FROM (
+I, [2015-09-18T23:08:46.495873 #19463]  INFO -- default-centos:     +          SELECT 'guacadmin' AS username, 'guacadmin' AS affected_username, 'READ'       AS permission
+I, [2015-09-18T23:08:46.495909 #19463]  INFO -- default-centos:     +    UNION SELECT 'guacadmin' AS username, 'guacadmin' AS affected_username, 'UPDATE'     AS permission
+I, [2015-09-18T23:08:46.497628 #19463]  INFO -- default-centos: dmin' AS username, 'guacadmin' AS affected_username, 'ADMINISTER' AS permission
+I, [2015-09-18T23:08:46.497708 #19463]  INFO -- default-centos:     +) permissions
+I, [2015-09-18T23:08:46.497737 #19463]  INFO -- default-centos:     +JOIN guacamole_user          ON permissions.username = guacamole_user.username
+I, [2015-09-18T23:08:46.497763 #19463]  INFO -- default-centos:     +JOIN guacamole_user affected ON permissions.affected_username = affected.username;
+I, [2015-09-18T23:08:46.497788 #19463]  INFO -- default-centos:     +
+I, [2015-09-18T23:08:46.497812 #19463]  INFO -- default-centos:     - change mode from '' to '0755'
+I, [2015-09-18T23:08:46.497837 #19463]  INFO -- default-centos:   * bash[guacamole_db_create] action run (skipped due to not_if)
+I, [2015-09-18T23:08:46.524586 #19463]  INFO -- default-centos:  (up to date)
+I, [2015-09-18T23:08:46.579104 #19463]  INFO -- default-centos:  (up to date)
+I, [2015-09-18T23:08:46.579227 #19463]  INFO -- default-centos: 
+I, [2015-09-18T23:08:46.579267 #19463]  INFO -- default-centos: Running handlers:
+I, [2015-09-18T23:08:46.579304 #19463]  INFO -- default-centos: Running handlers complete
+I, [2015-09-18T23:08:46.579341 #19463]  INFO -- default-centos: Chef Client finished, 31/35 resources updated in 716.836872413 seconds
+I, [2015-09-18T23:08:46.755312 #19463]  INFO -- default-centos: Finished converging <default-centos> (12m1.91s).
+I, [2015-09-18T23:08:46.755493 #19463]  INFO -- default-centos: -----> Setting up <default-centos>...
+W, [2015-09-18T23:08:46.756060 #19463]  WARN -- default-centos: Running legacy setup for 'Docker' Driver
+I, [2015-09-18T23:08:46.757030 #19463]  INFO -- default-centos: Finished setting up <default-centos> (0m0.00s).
+I, [2015-09-18T23:08:46.757150 #19463]  INFO -- default-centos: -----> Verifying <default-centos>...
+W, [2015-09-18T23:08:46.757464 #19463]  WARN -- default-centos: Running legacy verify for 'Docker' Driver
+I, [2015-09-18T23:08:46.757740 #19463]  INFO -- default-centos: Preparing files for transfer
+I, [2015-09-18T23:08:46.757958 #19463]  INFO -- default-centos: Transferring files to <default-centos>
+I, [2015-09-18T23:08:46.758744 #19463]  INFO -- default-centos: Finished verifying <default-centos> (0m0.00s).
+I, [2015-09-18T23:08:46.759158 #19463]  INFO -- default-centos: -----> Destroying <default-centos>...
+I, [2015-09-18T23:08:46.800188 #19463]  INFO -- default-centos: UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+I, [2015-09-18T23:08:46.800337 #19463]  INFO -- default-centos: root                19606               16094               0                   22:56               ?                   00:00:00            /usr/sbin/sshd -D -o UseDNS=no -o UsePAM=no -o PasswordAuthentication=yes -o UsePrivilegeSeparation=no -o PidFile=/tmp/sshd.pid
+I, [2015-09-18T23:08:46.800379 #19463]  INFO -- default-centos: root                19620               19606               0                   22:56               ?                   00:00:00            sshd: kitchen@pts/0
+I, [2015-09-18T23:08:46.800529 #19463]  INFO -- default-centos:  27247               19606               0                   23:07               ?                   00:00:00            /usr/local/sbin/guacd -p /var/run/guacd.pid
+I, [2015-09-18T23:08:46.800614 #19463]  INFO -- default-centos: root                27315               19606               15                  23:07               ?                   00:00:08            /usr/lib/jvm/java-1.7.0/bin/java -Djava.util.logging.config.file=/opt/tomcat/conf/logging.properties -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager -Djava.endorsed.dirs=/opt/tomcat/endorsed -classpath /opt/tomcat/bin/bootstrap.jar:/opt/tomcat/bin/tomcat-juli.jar -Dcatalina.base=/opt/tomcat -Dcatalina.home=/opt/tomcat -Djava.io.tmpdir=/opt/tomcat/temp org.apache.catalina.startup.Bootstrap start
+I, [2015-09-18T23:08:46.800661 #19463]  INFO -- default-centos: root                27534               19606               0                   23:08               ?                   00:00:00            /bin/sh /usr/bin/mysqld_safe --datadir=/var/lib/mysql --socket=/var/lib/mysql/mysql.sock --pid-file=/var/run/mysqld/mysqld.pid --basedir=/usr --user=mysql
+I, [2015-09-18T23:08:46.800694 #19463]  INFO -- default-centos: 27                  27636               27534               4                   23:08               ?                   00:00:00            /usr/libexec/mysqld --basedir=/usr --datadir=/var/lib/mysql --user=mysql --log-error=/var/log/mysqld.log --pid-file=/var/run/mysqld/mysqld.pid --socket=/var/lib/mysql/mysql.sock
+I, [2015-09-18T23:08:47.299009 #19463]  INFO -- default-centos: 1305b000fb409d23f95b5167ac75f76fab73e4ca4121116eb6f7860aa8ac1c1c
+I, [2015-09-18T23:08:53.590832 #19463]  INFO -- default-centos: 1305b000fb409d23f95b5167ac75f76fab73e4ca4121116eb6f7860aa8ac1c1c
+I, [2015-09-18T23:08:53.602541 #19463]  INFO -- default-centos: Finished destroying <default-centos> (0m6.84s).
+I, [2015-09-18T23:08:53.602816 #19463]  INFO -- default-centos: Finished testing <default-centos> (12m18.89s).
