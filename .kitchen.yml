@@ -2,8 +2,8 @@
 driver:
   name: vagrant
   network:
-  synced_folders:
-    - [".", "/vagrant", "create: true"]
+#  synced_folders:
+#    - [".", "/vagrant", "create: true"]
 
 provisioner:
   name: chef_zero
