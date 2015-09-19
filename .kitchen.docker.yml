@@ -1,0 +1,22 @@
+---
+driver:
+  name: docker
+  use_sudo: false
+  require_chef_omnibus: true
+
+platforms:
+- name: centos
+  driver_config:
+    image: "centos"
+    platform: "rhel"
+    dockerfile: Dockerfile
+- name: ubuntu
+  
+
+suites:
+  - name: default
+    busser:
+      sudo: true
+    run_list:
+      - recipe[guacamole::default]
+
