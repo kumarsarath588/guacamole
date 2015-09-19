@@ -2,8 +2,8 @@
 driver:
   name: vagrant
   network:
-#  synced_folders:
-#    - [".", "/vagrant", "create: true"]
+  synced_folders:
+    - [".", "/vagrant", "create: true"]
 
 provisioner:
   name: chef_zero
@@ -11,8 +11,9 @@ provisioner:
 platforms:
   - name: oel-6.6
     driver_config:
-      box: oel66
-      box_url: https://s3.amazonaws.com/gehc.preprod.useast1.swrepo/Platforms/Vagrant/oel66-nocm12.2.1-1.0.15.box
+       box: boxcutter/oel66
+#      box: oel66
+#      box_url: https://s3.amazonaws.com/gehc.preprod.useast1.swrepo/Platforms/Vagrant/oel66-nocm12.2.1-1.0.15.box
   - name: centos-6.6
     driver_config:
       box: chef/centos-6.6
