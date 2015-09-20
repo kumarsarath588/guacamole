@@ -174,7 +174,7 @@ bash 'guacamole_db_create' do
   mysql -u root < guacamolemysql.sql
   mysql -u root guacamole_db < initdb.sql
   EOH
- not_if 'mysql -u root -e 'show databases' | grep guacamole_db'
+ not_if "mysql -u root -e 'show databases' | grep guacamole_db"
 end
 
 service 'tomcat' do
