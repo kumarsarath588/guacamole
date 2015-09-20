@@ -11,7 +11,7 @@ provisioner:
 platforms:
   - name: oel-6.6
     driver_config:
-       box: boxcutter/oel66
+       box: oel-66
 #      box: oel66
 #      box_url: https://s3.amazonaws.com/gehc.preprod.useast1.swrepo/Platforms/Vagrant/oel66-nocm12.2.1-1.0.15.box
   - name: centos-6.6
