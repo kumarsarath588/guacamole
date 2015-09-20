@@ -6,32 +6,32 @@
 #
 # All rights reserved - Do Not Redistribute
 #
-#Guacamole installation
+# Guacamole installation
 
-#Package installation
+# Package installation
 
 
 apt_repository 'libssh2' do
-   uri        'http://kr.archive.ubuntu.com/ubuntu'
-   components ['main', 'universe']
-   distribution 'trusty'
-   only_if { node['platform']=="ubuntu" }
+  uri 'http://kr.archive.ubuntu.com/ubuntu'
+  components %w['main', 'universe']
+  distribution 'trusty'
+  only_if { node['platform'] == 'ubuntu' }
 end
 
-if node['platform']=="ubuntu" 
-  include_recipe "apt"
+if node['platform'] == 'ubuntu'
+  include_recipe 'apt'
 end
 
-include_recipe "java"
+include_recipe 'java'
 
-package ['cairo-devel', 'libpng-devel', 'uuid-devel', 'freerdp-devel', 'pango-devel', 'libssh2-devel', 'libvncserver-devel', 'pulseaudio-libs-devel', 'openssl-devel', 'libvorbis-devel', 'wget', 'unzip', 'gcc', 'gcc-c++', 'libpng-devel', 'cairo-devel', 'uuid-devel' ] do
-    action :install
-    only_if { node['platform']=="centos" or node['platform']=="amazon" or node['platform']=="oracle"}
+package ['cairo-devel', 'libpng-devel', 'uuid-devel', 'freerdp-devel', 'pango-devel', 'libssh2-devel', 'libvncserver-devel', 'pulseaudio-libs-devel', 'openssl-devel', 'libvorbis-devel', 'wget', 'unzip', 'gcc', 'gcc-c++', 'libpng-devel', 'cairo-devel', 'uuid-devel'] do
+  action :install
+  only_if { node['platform'] == 'centos' || node['platform'] == 'amazon' || node['platform'] == 'oracle'}
 end
 
-package ['libcairo2-dev', 'libpng12-dev', 'libossp-uuid-dev', 'libfreerdp-dev', 'libpango1.0-dev', 'libtelnet-dev', 'libssh2-1-dev', 'libvncserver-dev', 'libpulse-dev', 'libssl-dev', 'libvorbis-dev', 'gcc', 'unzip', 'wget', 'g++' ] do
-    action :install
-    only_if { node['platform']=="ubuntu" }
+package ['libcairo2-dev', 'libpng12-dev', 'libossp-uuid-dev', 'libfreerdp-dev', 'libpango1.0-dev', 'libtelnet-dev', 'libssh2-1-dev', 'libvncserver-dev', 'libpulse-dev', 'libssl-dev', 'libvorbis-dev', 'gcc', 'unzip', 'wget', 'g++'] do
+  action :install
+  only_if { node['platform'] == 'ubuntu' }
 end
 
 libtelnet_url = node['guacamole']['libtelnet']['url']
@@ -57,7 +57,7 @@ bash 'libtelnet' do
   code <<-EOH
   [ -z "$(rpm -qa|grep libtelnet)" ] && rpm -ivh libtelnet-0*.rpm || exit 0
   EOH
-  only_if { node['platform']=="centos" or node['platform']=="amazon" }
+  only_if { node['platform'] == 'centos' || node['platform'] == 'amazon' }
 end
 
 bash 'libtelnet' do
@@ -66,15 +66,15 @@ bash 'libtelnet' do
   code <<-EOH
   [ -z "$(rpm -qa|grep libtelnet-devel)" ] && rpm -ivh libtelnet-devel-0*.rpm || exit 0
   EOH
-  only_if { node['platform']=="centos" or node['platform']=="amazon" }
+  only_if { node['platform'] == 'centos' || node['platform'] == 'amazon' }
 end
 
 
-include_recipe "guacamole::tomcat"
+include_recipe 'guacamole::tomcat'
 
 magic_shell_environment 'LD_LIBRARY_PATH' do
-  value "/usr/local/lib"
-  only_if { node['platform']=="ubuntu" }
+  value '/usr/local/lib'
+  only_if { node['platform'] == 'ubuntu' }
 end
 
 bash 'guacamole_server' do
@@ -89,11 +89,11 @@ bash 'guacamole_server' do
   make
   make install
   EOH
-  not_if {File.exists?("/etc/init.d/guacd")}
+  not_if { File.exist?('/etc/init.d/guacd') }
 end
 
-service "guacd" do
-  action [ :enable, :start ]
+service 'guacd' do
+  action [:enable, :start]
 end
 
 %w[ /var/lib/guacamole/classpath /root/.guacamole ].each do |dir|
@@ -113,15 +113,15 @@ bash 'guacamole_war' do
   wget http://sourceforge.net/projects/guacamole/files/current/binary/guacamole-0.9.7.war/download -O guacamole-0.9.7.war
   cp guacamole-0.9.7.war /opt/tomcat/webapps/guacamole.war
   EOH
-  not_if {File.exists?("/opt/tomcat/webapps/guacamole.war")}
+  not_if { File.exist?('/opt/tomcat/webapps/guacamole.war') }
 end
 
-service "tomcat" do
+service 'tomcat' do
   action [ :restart ]
 end
 
-template "/root/.guacamole/guacamole.properties" do
-  source "guacamole.properties.erb"
+template '/root/.guacamole/guacamole.properties' do
+  source 'guacamole.properties.erb'
 end
 
 %w[ guacamole-auth-jdbc-mysql-0.9.7.jar mysql-connector-java-5.1.35-bin.jar ].each do |file|
@@ -131,23 +131,23 @@ end
   end
 end
 
-if node['platform'] == "centos" && node['platform_version'].to_f >= 7.0
+if node['platform'] == 'centos' && node['platform_version'].to_f >= 7.0
   package [ 'mariadb-server' , 'mariadb' ] do
     action :install
   end
-  service "mariadb" do
+  service 'mariadb' do
     supports :restart => true, :reload => true
     action [:enable, :start]
   end
 else
-  package "mysql-server" do
+  package 'mysql-server' do
     action :install
   end
-  case node["platform_family"]
-   when "debian"
-     mysql_service="mysql"
-   when "rhel"
-     mysql_service="mysqld"
+  case node['platform_family']
+   when 'debian'
+     mysql_service='mysql'
+   when 'rhel'
+     mysql_service='mysqld'
   end
 
   service mysql_service do
@@ -157,14 +157,14 @@ else
 end
 
 
-template "/tmp/guacamolemysql.sql" do
-  source "guacamolemysql.sql"
-  mode "00755"
+template '/tmp/guacamolemysql.sql' do
+  source 'guacamolemysql.sql'
+  mode '00755'
 end
 
 cookbook_file '/tmp/initdb.sql' do
   source 'initdb.sql'
-  mode "00755"
+  mode '00755'
 end
 
 bash 'guacamole_db_create' do
@@ -174,9 +174,9 @@ bash 'guacamole_db_create' do
   mysql -u root < guacamolemysql.sql
   mysql -u root guacamole_db < initdb.sql
   EOH
- not_if "mysql -u root -e 'show databases' | grep guacamole_db"
+ not_if 'mysql -u root -e 'show databases' | grep guacamole_db'
 end
 
-service "tomcat" do
+service 'tomcat' do
   action [ :enable, :start ]
 end
