@@ -97,7 +97,7 @@ service "guacd" do
 end
 
 %w[ /var/lib/guacamole/classpath /root/.guacamole ].each do |dir|
-  directory "#{dir}" do
+  directory dir do
     owner 'root'
     group 'root'
     mode '0755'
@@ -126,7 +126,7 @@ end
 
 %w[ guacamole-auth-jdbc-mysql-0.9.7.jar mysql-connector-java-5.1.35-bin.jar ].each do |file|
   cookbook_file "/var/lib/guacamole/classpath/#{file}" do
-   source "#{file}"
+   source file
     action :create_if_missing
   end
 end
@@ -174,7 +174,7 @@ bash 'guacamole_db_create' do
   mysql -u root < guacamolemysql.sql
   mysql -u root guacamole_db < initdb.sql
   EOH
- not_if{" mysql -u root -e 'show databases' | grep guacamole_db "}
+ not_if "mysql -u root -e 'show databases' | grep guacamole_db"
 end
 
 service "tomcat" do
