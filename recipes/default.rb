@@ -146,7 +146,7 @@ else
   case node['platform_family']
    when 'debian'
      mysql_service='mysql'
-   when 'rhel'
+   else
      mysql_service='mysqld'
   end
 
