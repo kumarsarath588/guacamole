@@ -26,7 +26,13 @@ include_recipe 'java'
 
 package ['cairo-devel', 'libpng-devel', 'uuid-devel', 'freerdp-devel', 'pango-devel', 'libssh2-devel', 'libvncserver-devel', 'pulseaudio-libs-devel', 'openssl-devel', 'libvorbis-devel', 'wget', 'unzip', 'gcc', 'gcc-c++', 'libpng-devel', 'cairo-devel', 'uuid-devel'] do
   action :install
-  only_if { node['platform'] == 'centos' || node['platform'] == 'amazon' || node['platform'] == 'oracle'}
+  only_if { node['platform'] == 'centos' || node['platform'] == 'oracle'}
+end
+
+
+package ['cairo-devel', 'libpng-devel', 'uuid-devel', 'pango-devel', 'libssh2-devel', 'openssl-devel', 'libvorbis-devel', 'wget', 'unzip', 'gcc', 'gcc-c++', 'libpng-devel', 'cairo-devel', 'uuid-devel'] do
+  action :install
+  only_if { node['platform'] == 'amazon'}
 end
 
 package ['libcairo2-dev', 'libpng12-dev', 'libossp-uuid-dev', 'libfreerdp-dev', 'libpango1.0-dev', 'libtelnet-dev', 'libssh2-1-dev', 'libvncserver-dev', 'libpulse-dev', 'libssl-dev', 'libvorbis-dev', 'gcc', 'unzip', 'wget', 'g++'] do
