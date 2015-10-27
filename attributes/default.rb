@@ -9,7 +9,7 @@ default['tomcat']['version'] = 8
 default['tomcat']['user'] = 'admin'
 default['tomcat']['pass'] = 'admin'
 default['tomcat']['home'] = '/opt/tomcat'
-default['tomcat']['url'] = 'http://mirrors.gigenet.com/apache/tomcat/tomcat-8/v8.0.26/bin/apache-tomcat-8.0.26.zip'
+default['tomcat']['url'] = 'https://archive.apache.org/dist/tomcat/tomcat-8/v8.0.26/bin/apache-tomcat-8.0.26.zip'
 
 # guacamole attributes
 default['guacamole']['libtelnet']['url'] = 'http://dl.fedoraproject.org/pub/epel/6/x86_64/libtelnet-0.20-2.el6.x86_64.rpm'
