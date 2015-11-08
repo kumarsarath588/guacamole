@@ -6,6 +6,6 @@ description 'Installs/Configures guacamole'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version '0.2.0'
 
-depends 'java', '= 1.31.0'
-depends 'apt', '= 2.7.0'
-depends 'magic_shell', '= 1.0.0'
+depends 'java', '>= 0.0.0'
+depends 'apt', '>= 0.0.0'
+depends 'magic_shell', '>= 0.0.0'
